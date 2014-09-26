@@ -455,7 +455,7 @@
 		 * });
 		 *
 		 * sg.myfunc( 'abc' ); //return "<<ABC>>"
-		 * @param {object} arguments - Parámetros de la función original.
+		 * @param {object} [arguments=undefined] Parámetros de la función original.
 		 * @return {*} el valor devuelto de la función original. 
 		 * @type *
 		 * @link sg.extend Refencia
@@ -693,12 +693,12 @@
 		 * @function
 		 * @name addCustomAttr
 		 * @memberOf sg
-		 * @param {object} 		option - inicializar el objeto de atributo personalizado
-		 * @param {string} 		option.name - nombre de atributo personalizado.
-		 * @param {function} 	option.init - función de inicialización.
-		 * @param {function} 	option.action - función a ejecutar: se ejecuta cuando se procede los eventos de la etiquetas
+		 * @param {object} 		option 						- inicializar el objeto de atributo personalizado
+		 * @param {string} 		option.name 				- nombre de atributo personalizado.
+		 * @param {function} 	[option.init=undefined] 	- función de inicialización.
+		 * @param {function} 	[option.action=undefined] 	- función a ejecutar: se ejecuta cuando se procede los eventos de la etiquetas
 		 * personalizadas que utilitza estos atributos personalizados. 
-		 * @param {boolean} 	[option.applyAll=true] option.applyAll - determina si se habilita la función de este atributo en todas las etiquetas básicas. 
+		 * @param {boolean} 	[option.applyAll=true] 		- determina si se habilita la función de este atributo en todas las etiquetas básicas. 
 		 * @example
 		 * //script
 		 * sg.addCustomAttr({
@@ -985,7 +985,7 @@
 		 * sg.setStage( "#stage" );
 		 * sg.setScaleMode( "showall" );
 		 * sg.init( function(){} );
-		 * @param {function} callback
+		 * @param {function} [callback=undefined]
 		 */
 		init: function ( callback ) {
 			function _init(){
