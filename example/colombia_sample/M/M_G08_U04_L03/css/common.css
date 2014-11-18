@@ -1,0 +1,43 @@
+@charset "utf-8";
+
+p{font-size:inherit;margin:0;padding:0;}
+h2{font-size:2.5em}
+a{text-decoration:none}
+.fL{float:left}
+.fR{float:right}
+.clear{clear:both}
+.agRt{text-align:right}
+.agC{text-align:center}
+.ggd_contents{width:92%;padding:1% 4%;height:auto;text-align:left}
+
+/*tab*/
+.etabs{overflow:hidden;margin:20px 0 0;padding:0;float:right}
+.etabs .tab{float:left;margin-right:5px}
+.etabs .tab a{width:60px;height:40px;display:block;border-radius:5px;background:#bbb;color:#666;text-align:center;line-height:40px;font-size:1.75em;}
+.etabs .tab.active a{background:#334d5c;color:#fff;}
+.panel-container{clear:both;padding-top:20px;min-height:520px}
+
+/*step*/
+.prevNext{position:absolute;bottom:10px;left:50%;margin-left:-66px;text-align:center}
+.p_prev, .p_next{display:inline-block;width:45px;height:45px;margin:0 10px;cursor:pointer;}
+.p_prev{background:url(../img/p_prev.png) no-repeat}
+.p_prev.off, .p_prev:active{background:url(../img/p_prev_off.png) no-repeat}
+.p_next{background:url(../img/p_next.png) no-repeat}
+.p_next.off, .p_next:active{background:url(../img/p_next_off.png) no-repeat}
+
+.boxOrg{padding:20px 35px;background:#e38152;border-radius:10px;font-size:2.25em;color:#fff}
+.wBox{border:2px solid #ccc;background:#fff;border-radius:10px}
+.gBox{border-radius:10px;border:2px solid #92c984;background:#bef2b1}
+.gryBox{border-radius:10px;background:#e6e5e3}
+.wBox2{border:3px solid #ccc;background:#fff;border-radius:20px}
+
+.nyBx{border-radius:10px;background:#334d5c;color:#c9e2df}
+.cNum{display:inline-block;width:42px;height:42px;background:#45b29d;color:#ffdc6a;text-align:center;font-size:38px;font-weight:bold;line-height:42px;border-radius: 21px}
+.numBg{display:inline-block;width:50px;height:50px;background:url(../img/number_bg.png) no-repeat;line-height:50px;text-align:center;color:#efc94c;font-weight:bold;font-size:35px;font-weight:bold}
+
+.hideGbx{border:2px solid #92c984;background:#bef2b1;border-radius:10px}
+.hideGbx.txtRed{color:#da5151}
+
+.tb{display:table}
+.tb .cell{display:table-cell;vertical-align:middle}
+

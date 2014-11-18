@@ -1,0 +1,71 @@
+@charset "utf-8";
+/* CCS Document */
+
+html, body {
+	background: 
+	#a9daff; /* Old browsers */
+	background: -moz-linear-gradient(top,  #a9daff 0%, #3fbbff 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a9daff), 		color-stop(100%,#3fbbff)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #a9daff 0%,#3fbbff 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #a9daff 0%,#3fbbff 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #a9daff 0%,#3fbbff 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #a9daff 0%,#3fbbff 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9daff', endColorstr='#3fbbff',GradientType=0 ); /* IE6-9 */
+	background-attachment:fixed;
+}
+
+/* ESTRUCTURA GENERAL */
+.ggd_header_M {
+	background:#BA5D50;
+	border-bottom-color:#EDC200; 
+}
+.ggd_contenido_M { 
+	
+	background:#F2F2D7;
+	border-bottom-color:#BA5D50;
+}
+
+/*HEADER */
+.ggd_icon_M_introduccion{
+	background-image: url(img/ggd_M_icon_introduccion-01.png);
+	background-position:left top;
+	background-repeat:no-repeat;
+	background-size:100%;
+
+}
+.ggd_icon_M_objetivos{
+	background-image: url(img/ggd_M_icon_objetivos-01.png);
+	background-position:left top;
+	background-repeat:no-repeat;
+	background-size:100%;
+}
+.ggd_icon_M_contenido{
+	background-image: url(img/ggd_M_icon_contenido-01.png);
+	background-position:left top;
+	background-repeat:no-repeat;
+	background-size:100%;
+}
+.ggd_icon_M_resumen{
+	background-image: url(img/ggd_M_icon_resumen-01.png);
+	background-position:left top;
+	background-repeat:no-repeat;
+	background-size:100%;
+}
+.ggd_icon_M_valoracion{
+	background-image: url(img/ggd_M_icon_valoracion-01.png);
+	background-position:left top;
+	background-repeat:no-repeat;
+	background-size:100%;
+}
+
+.ggd_nombre_M_introduccion{
+	background:#BA5D50;
+	color:#ECEFF0;
+}
+/* TEXTOS */
+
+h1
+{
+	color:#ECEFF0;
+}
+ /* OBJETIVOS */

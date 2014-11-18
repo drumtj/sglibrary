@@ -1,0 +1,134 @@
+@charset "utf-8";
+/* CSS Document */
+
+@import url("../common/css/fuentes.css");
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: "cabinbold";
+}
+
+/* ESTRUCTURA GENERAL */
+.ggd_contenedorGeneral{
+	width: 100%;
+	height: auto;
+	margin: 0px auto 0 auto;
+}
+
+header {
+	width: 100%;
+	height:53px;
+	border-bottom-style: solid;
+	border-bottom-width: 5px;
+	position: relative;
+
+}
+.ggd_contenido {
+	width: 100%;
+	height: auto;
+	min-height: 700px;
+	padding: 0%;
+	border-bottom-style: solid;
+	border-bottom-width: 10px;
+	position: relative;
+	margin: 0 auto;
+}
+
+/* ELEMENTOS HEADER */
+
+.ggd_icon {
+	width: 50px;
+	height:45px;
+	display: inline-block;
+	vertical-align: top;
+	margin: 2px 0px 0px 35px;
+	padding: 0px;
+}
+
+.ggd_nombre {
+	width: 100px;
+	height: 25px;
+	border-radius: 0 0 10px 10px;
+	margin: 0;
+	position: absolute;
+	left: 10px;
+	top: -5px;
+	text-align: center;
+	font-size: 1em;
+}
+
+/* ELEMENTOS CONTENIDO */
+
+.ggd_flechaVolver, .ggd_flechaAvanzar {
+	width: 50px;
+	height: 45px;
+	position: absolute;
+	top:40%;
+	cursor: pointer;
+	
+}
+.ggd_flechaVolver {
+	left: 10px;
+	margin-right: 50px;
+	transition:background-image 0.5s ease-in-out;
+	background-image: url(../common/img/ggd_M_flechas-01.png);
+	background-repeat: no-repeat;
+
+}
+
+.ggd_flechaVolver:hover {
+	background-image: url(../common/img/ggd_M_flechas-03.png);
+
+}
+
+.ggd_flechaAvanzar {
+	right: 10px;
+	transition:background-image 0.5s ease-in-out;
+	background-image: url(../common/img/ggd_M_flechas-02.png);
+	background-repeat: no-repeat;
+	
+}
+.ggd_flechaAvanzar:hover {
+	background-image: url(../common/img/ggd_M_flechas-04.png);
+	
+}
+
+video {
+	width: 100%;
+	height: auto;
+	margin: 0 auto;
+}
+
+/* TEXTOS */
+
+h1 {
+	font-size: 2em;
+	height: auto;
+	display: inline-block;
+	margin:7px 0 0 20px;
+
+}
+
+h2 {
+	color:#3A3838;
+	display: inline-block;
+	vertical-align: top;
+	margin: 15px 0px 20px 0px;
+	font-size: 2em;
+	text-align: center;
+}
+p {
+	font-size: 3.5em;
+	line-height: 1em;
+
+}
+/* OBJETIVOS */
+.ggd_contenedorObjetivos {
+	width:100%;
+	height:auto;
+	min-height:70px;
+	margin:0 auto;
+	text-align: center;
+
+}

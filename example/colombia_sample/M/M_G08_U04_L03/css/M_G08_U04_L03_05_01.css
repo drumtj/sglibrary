@@ -1,0 +1,31 @@
+@charset "utf-8";
+
+@import url(common.css);
+
+.etabs .tab a{width:170px}
+.wBox{padding:20px 30px;font-size:2em;}
+.clickPop{position:absolute;bottom:20px;left:50%;margin-left:-116px;}
+.solv{position:absolute;bottom:35px;right:30px;font-size:2.25em;}
+.solv .hideGbx{width:70px;margin:0 10px;text-align:center;vertical-align:middle}
+.solv img{vertical-align:middle}
+
+.linkPop{color:#339900; border-bottom-style:solid; border-bottom-width:2px; border-bottom-color:#339900}
+.lyPopUp{position:absolute;left:361px;top:50%;background:#fff}
+.lyClose{position:absolute;right:20px;top:25px}
+.lyPopCont{width:1000px;height:auto}
+.lyPopCont .ly_head{padding:25px 50px 20px 50px;background:#45b29d;font-size:2em;color:#fff;min-height:35px;}
+.lyPopCont .ly_cont{padding:10px 0 0;overflow:hidden;font-size:2em}
+.lyPopCont .pfoots{padding:20px 50px;background:#ececec}
+.lyPopCont .pfoots img{vertical-align:middle}
+.lyPopCont .pcontents{padding:30px 50px;}
+.ly_cont h3{margin:0 0 40px;padding:0;font-size:40px}
+.ly_cont.pop1{padding:30px 50px;}
+.ly_cont.pop2{padding:30px 50px;}
+.ly_cont.pop3{padding:50px 50px;}
+.pop1 .wp{overflow:hidden;padding-top:30px;}
+.pop1 .fL{padding-top:50px;}
+.pop2 .wp{overflow:hidden;padding-top:30px;}
+.pop2 .fL{padding-top:50px;}
+.pop3 .wp{overflow:hidden}
+.pop3 .fL{width:60%;}
+.pop3 .fR{width:40%;}

@@ -1,0 +1,22 @@
+@charset "utf-8";
+
+@import url(common.css);
+
+h3{margin:0;}
+.actCont h2{text-align:left}
+.hideGbx{margin:3px 0;padding:7px 15px;font-size:inherit;text-align:center;line-height:1}
+.list li{margin-bottom:35px;padding-left:35px;background:url(../img/dot_cir.png) no-repeat 0 20px;font-size:2.25em;line-height:1.2;}
+.wBox{margin:0 auto;width:430px;height:290px;text-align:center}
+.wBox img{height:100%}
+
+.page2 .wBox{width:269px;height:220px}
+.trBx{position:relative;width:269px;height:220px}
+.trBx img{height:100%;}
+.trBx .img1{position:absolute;top:0;left:0}
+.trBx .imgUp1{position:absolute;top:0;left:0}
+.cont{overflow:hidden}
+.trBxWp{float:left;width:410px;text-align:center}
+.trBxWp .tit{display:inline-block;height:55px;padding:0 10px;background:#75aadb;border-radius:10px;text-align:center;line-height:55px;font-size:2em;color:#fff;}
+.trBxWp .wBox{margin:10px auto;padding:10px 20px}
+.trBxWp .hideGbx{font-size:2.25em}
+

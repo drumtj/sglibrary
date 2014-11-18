@@ -80,12 +80,10 @@ require(
 			
 			function setInHeight( target, h ){
 				var $this = $( target );
-				$this.css("min-height", h - (getOutHeight( target ) - $this.height()));
+				$this.height(h - (getOutHeight( target ) - $this.height()));
 			}
 			
 			setInHeight( ".gga_contenido, .ggb_contenido, .ggc_contenido, .ggd_contenido, .gge_contenido", sg.stageHeight - getOutHeight( "#content>header" ) );
-			
-			$("html").css( "user-select", "none" );
 		});
 	}
 );

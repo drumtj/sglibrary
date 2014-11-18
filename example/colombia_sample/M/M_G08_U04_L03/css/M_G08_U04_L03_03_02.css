@@ -1,0 +1,33 @@
+@charset "utf-8";
+
+@import url(common.css);
+
+.actCont h2{text-align:left}
+.hideGbx{padding:10px 15px;font-size:inherit;text-align:center;line-height:1}
+
+
+.icoPop{margin-left:10px;vertical-align:middle}
+.lyPopUp{position:absolute;left:361px;top:50%;background:#fff}
+.lyClose{position:absolute;right:20px;top:25px}
+.lyPopCont{width:1000px;height:auto}
+.lyPopCont .ly_head{padding:25px 0 20px 50px;background:#45b29d;font-size:2em;color:#ffedbd;min-height:35px;}
+.lyPopCont .ly_cont{padding:10px 0 0;overflow:hidden;font-size:2em}
+.lyPopCont .pfoots{padding:20px 50px;background:#ececec}
+.lyPopCont .pfoots img{vertical-align:middle}
+.lyPopCont .pcontents{padding:30px 50px;}
+.ly_cont h3{margin:0 0 40px;padding:0;font-size:40px}
+.ly_cont.pop1{padding:50px 60px;}
+.wBox{overflow:hidden;width:900px;margin:0 auto;padding:10px 50px 0;}
+.trBx{position:relative;float:left;width:298px;height:250px}
+.trBx img{width:100%;}
+.trBx .img1{position:absolute;top:0;left:0;}
+.trBx .imgUp1{position:absolute;top:0;left:0;}
+.num{display:inline-block;width:42px;height:42px;background:#bda17d;color:#fff;text-align:center;font-size:38px;font-weight:bold;line-height:42px;border-radius: 21px}
+.page2 .wBox{width:770px;padding:10px 0 0 50px;}
+.page2 .trBx{width:206px;height:190px;margin-right:50px;}
+.page2 .olist{margin-left:0;}
+
+.olist{margin-left:90px;}
+.olist li{overflow:hidden;margin-bottom:20px;font-size:2.25em}
+.olist .numBg{float:left;margin-right:20px}
+.olist .txt{float:left;width:90%;}

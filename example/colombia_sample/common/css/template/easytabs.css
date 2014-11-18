@@ -1,0 +1,26 @@
+@charset "utf-8";
+/* CSS Document */
+
+.tab-container .etabs { margin: 0; padding: 0; }
+.tab-container .etabs .tab { 
+	display: inline-block;
+	zoom:1;
+	*display:inline;
+	background: #e27a3f;
+	border: solid 1px #999;
+	border-bottom: none;
+	-moz-border-radius: 4px 4px 0 0;
+	-webkit-border-radius: 4px 4px 0 0;
+	text-align:center;
+}
+.tab-container .etabs .tab a { font-size: 2.2em; min-width:50px; line-height: 1.3em; display: block; padding: 0 10px; outline: none; color:#334d5c; }
+.tab-container .etabs .tab a:hover { text-decoration: underline; }
+.tab-container .etabs .tab.active { background: #e6e6e6; padding-top: 6px; position: relative; top: 1px; border-color: #666; }
+.tab-container .etabs .tab a.active { font-weight: bold; }
+.tab-container .panel-container { 
+	background: #e6e6e6;
+	border: solid #666 1px;
+	padding: 10px;
+	-moz-border-radius: 0 4px 4px 4px;
+	-webkit-border-radius: 0 4px 4px 4px;
+}

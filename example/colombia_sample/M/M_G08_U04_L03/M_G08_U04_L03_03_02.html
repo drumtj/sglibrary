@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0;">
+<title>M_G08_U04_L03_03_02</title>
+<link rel="stylesheet" type="text/css" href="../../common/css/sg.css">
+<link rel="stylesheet" type="text/css" href="../../common/css/normalize.css">
+<link rel="stylesheet" type="text/css" href="../../css/GGD.css">
+<link rel="stylesheet" type="text/css" href="../../skins/M_GGD/M_GGD.css">
+<link rel="stylesheet" type="text/css" href="css/M_G08_U04_L03_03_02.css">
+<script type="text/javascript" src="../../common/lib/require/require.js"></script>
+<script type="text/javascript" src="../../common/js/main.js"></script>
+</head>
+
+<body>
+    <div id="stage" data-sg-scalemode="showall">
+        <div id="content" class="ggd_contenedorGeneral">
+            <header class="ggd_header_M">                                
+                <div class="ggd_icon ggd_icon_M_contenido"></div>
+                <h1>Actividad 2</h1>
+            </header>
+            
+            <!-- INCIO CONTENIDO (CONTENT) -->
+            <div class="ggd_contenido ggd_contenido_M">
+               <div class="ggd_nombre ggd_nombre_M_introduccion">Contenido</div>
+               <div class="ggd_contenedorObjetivos ggd_contents">
+
+                  <sg-item-page sg-key="1" sg-group="1" class="actCont page1">
+                    <h2>Observa los tipos de los triángulos depende de ángulo.</h2>
+                    <div class="wBox">
+                      <sg-overlap class="trBx trBx1" sg-filter='img'>
+                        <span class="num">1</span>
+                        <img src="img/Math_G08_001_004_1.png" alt="">
+                        <img id="img1" src="img/Math_G08_001_004_1_up.png" alt="">
+                      </sg-overlap>
+                      <sg-overlap class="trBx trBx2" sg-filter='img'>
+                        <span class="num">2</span>
+                        <img src="img/Math_G08_001_004_2.png" alt="">
+                        <img id="img2" src="img/Math_G08_001_004_2_up.png" alt="">
+                      </sg-overlap>
+                      <sg-overlap class="trBx trBx3" sg-filter='img'>
+                        <span class="num">3</span>
+                        <img src="img/Math_G08_001_004_3.png" alt="">
+                        <img id="img3" src="img/Math_G08_001_004_3_up.png" alt="">
+                      </sg-overlap>
+                    </div>
+                    <ul class="olist">
+                      <li><span class="numBg">1</span><span class="txt">Triángulo <sg-btn-hide class="hideGbx" sg-onimg="#img1"> rectángulo </sg-btn-hide> : tiene un ángulo recto.</span></li>
+                      <li><span class="numBg">2</span><span class="txt">Triángulo <sg-btn-hide class="hideGbx" sg-onimg="#img2"> acutángulo </sg-btn-hide> : tiene 3 ángulos agudos.</span></li>
+                      <li><span class="numBg">3</span><span class="txt">Triángulo <sg-btn-hide class="hideGbx" sg-onimg="#img3"> obtusángulo </sg-btn-hide> : tiene un ángulo obtuso.</span></li>
+                    </ul>                    
+                  </sg-item-page>
+
+                  <sg-item-page sg-key="2" sg-group="1" class="actCont page2">
+                    <h2>Obervemos los diferentes tipos del triangulo segunlas longitudes de los lados</h2>
+                    <div class="wBox">
+                      <div class="trBx trBx1">
+                        <span class="num">1</span>
+                        <img src="img/Math_G08_001_005_1.png" alt="" class="img1">
+                        <img id="img4" src="img/Math_G08_001_005_1_up.png" alt="" class="imgUp1 sg-hide">
+                      </div>
+                      <div class="trBx trBx2">
+                        <span class="num">2</span>
+                        <img src="img/Math_G08_001_005_2.png" alt="" class="img1">
+                        <img id="img5" src="img/Math_G08_001_005_2_up.png" alt="" class="imgUp1 sg-hide">
+                      </div>
+                      <div class="trBx trBx3">
+                        <span class="num">3</span>
+                        <img src="img/Math_G08_001_005_3.png" alt="" class="img1">                        
+                      </div>
+                    </div>
+                    <ul class="olist">
+                      <li><span class="numBg">1</span><span class="txt">Triangulo <sg-btn-hide class="hideGbx" sg-onimg="#img4">equilatero</sg-btn-hide>:Es un triangulo que tiene las 3 longitudes de los lados iguales.</span></li>
+                      <li><span class="numBg">2</span><span class="txt">Triangulo <sg-btn-hide class="hideGbx" sg-onimg="#img5">isoceles</sg-btn-hide>: Es un triangulo que tiene dos lados iguales.<sg-btn-popup sg-key="1" class="icoPop"><img src="img/ico_noti.png" alt=""></sg-btn-popup></span></li>
+                      <li><span class="numBg">3</span><span class="txt">Triangulo <sg-btn-hide class="hideGbx">escaleno</sg-btn-hide>: Es un triangulo que tiene sus 3 lados diferentes.</span></li>
+                    </ul>                                      
+                  </sg-item-page>
+
+                  <sg-item-popup sg-key="1" class="lyPopUp">
+                    <sg-btn-popup-close class="btn lyClose"><img src="img/ly_close.png" alt=""></sg-btn-popup-close>
+                    <div class="lyPopCont">
+                       <div class="ly_head">                         
+                       </div>
+                       <div class="ly_cont pop1">
+                         Un triangulo isosceles puede tambien ser un triangulo rectangulo
+                       </div>
+                    </div>
+                   </sg-item-popup>
+                   
+                   <div class="prevNext">
+                    <sg-btn-page class="p_prev off" sg-key="prev" sg-group="1"></sg-btn-page>
+                    <sg-btn-page class="p_next" sg-key="next" sg-group="1"></sg-btn-page>
+                   </div>
+                   <!-- // --> 
+
+               </div>                              
+            </div>
+            <!-- FIN CONTENIDO (CONTENT) -->
+        </div>
+    </div>
+</body>
+</html>

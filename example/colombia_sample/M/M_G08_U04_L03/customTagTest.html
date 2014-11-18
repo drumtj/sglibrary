@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>test</title>
+<link rel="stylesheet" type="text/css" href="../../common/css/sg.css">
+<script type="text/javascript" src="../../common/lib/jquery/jquery-1.11.1.min.js"></script>
+<script type="text/javascript" src="../../common/lib/jquery/jquery-ui.min.js"></script>
+
+<script type="text/javascript" src="../../common/lib/sg/sg-1.0.js"></script>
+<script type="text/javascript" src="../../common/lib/sg/sg.attr.defaultPack-1.0.js"></script>
+<script type="text/javascript" src="../../common/lib/sg/sg.tag.defaultPack-1.0.js"></script>
+
+<script type="text/javascript">
+
+sg.addCustomAttr({
+	name: "sg-color",
+	init: function( element, attrValue ){
+		$( element ).css( "color", attrValue );
+	}
+});
+
+var _count = 1;
+sg.addCustomTag({
+	name: "sg-ul",
+	attr: ["sg-color"],
+	tagInit: function( element ){
+		$( element ).text( "(" + _count + ") " + $( element ).text() );
+		_count++;
+	}
+});
+
+
+sg.addCustomAttr({
+	name: "sg-fadein",
+	init: function( element, attrValue ){
+		$( element ).hide().fadeIn();
+	},
+	applyAll: true
+});
+
+sg.addCustomAttr({
+	name: "sg-bgcolor",
+	init: function( element, attrValue ){
+		$( element ).css( "background-color", attrValue );
+	}
+});
+
+sg.addCustomTag({
+	name: "sg-box",
+	attr: [ "sg-bgcolor", "sg-sound" ],
+	tagInit: function( element ){
+		$( element ).css({
+			"position": "relative",
+			"width": "100px",
+			"height": "100px",
+			"background-color": "#ccc"
+		});
+	},
+	event: "click",
+	eventHandle: function( element ){
+		$( element ).animate({
+			left: "+=300px",
+			opacity: 0
+		},{
+			complete: function(){
+				$(this).remove();
+			}
+		});
+	}
+});
+
+sg.addCustomAttr({
+	name: "sg-alert",
+	action: function( element, attrValue ){
+ 		if( attrValue ) alert( attrValue );
+	}
+});
+
+sg.addCustomTag({
+	name: "sg-h1",
+	attr: [ "sg-color", "sg-alert" ],
+	tagInit: function( element ){
+		$( element ).css( "font-size", "40pt" );
+	},
+	event: "click"/*,
+	eventHandle: function( element ){
+		$( element ).animate( { "font-size": "80pt" } );
+	}*/
+});
+</script>
+
+<script type="text/javascript">
+sg.setStage( "#stage" );
+sg.setScaleMode( "showall" );
+sg.setSoundName({
+	"error": "../../common/sounds/error.mp3"
+});
+
+sg.init(function(){
+	console.log($.getCustomTag("sg-h1"));
+});
+
+</script>
+</head>
+
+<body>
+    <div id="stage">
+    	<h1>
+        <sg-h1 sg-alert="?"> ffffff </sg-h1>
+        <sg-ul> aaaaaaaaa </sg-ul>
+        <sg-ul sg-color="red"> aaaaaaaaa </sg-ul>
+        <sg-ul> aaaaaaaaa </sg-ul>
+        <sg-ul> aaaaaaaaa </sg-ul>
+        
+        <sg-box sg-fadein></sg-box>
+        <sg-box sg-bgcolor="blue" sg-sound="error"></sg-box>
+        
+        <div sg-fadein>ccccccccc</div>
+        </h1>
+    </div>
+</body>
+</html>
