@@ -628,7 +628,8 @@ ul.inheritsList
 				</div>
 				
 				<div class="description">
-					sg library es una librería que requiere jQuery. <br>Ofrece configuración de scaleMode, atributos personalizados y API para la producción de etiquetas personalizadas.<br>
+					sg library es una librería que requiere jQuery. <br>
+Ofrece configuración de scaleMode, atributos personalizados y API para la producción de etiquetas personalizadas.<br>
 					<br /><i>Author: </i>taejin (drumtj@gmail.com).
 				</div>
 				
@@ -775,7 +776,8 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						[Read Only]  Es el valor del eje X de stage. Se calcula el valor cuando se ajusta scaleMode como la función de  sg.set.Su proporción se calcula en base del width de stage.
+						[Read Only]  Es el valor del eje X de stage. Se calcula el valor cuando se ajusta scaleMode como la función de  sg.set.
+Su proporción se calcula en base del width de stage.
 						
 						
 					</div>
@@ -797,7 +799,8 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						[Read Only] stage의 Es el valor del eje Y de stage. Se calcula el valor cuando se ajusta scaleMode como la función de  sg.set.Su proporción se calcula en base del width de stage.
+						[Read Only] stage의 Es el valor del eje Y de stage. Se calcula el valor cuando se ajusta scaleMode como la función de  sg.set.
+Su proporción se calcula en base del width de stage.
 						
 						
 					</div>
@@ -933,18 +936,45 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Añadir atributos personalizados.<br>Al definir los atributos, se puede colocar true en el valor de applyAll con el fin de utlizarlos en todas las etiquetas.<br>Cuando el valor es false, se habilita la función del atributo al usarlo en la etiqueta personalizada. En general,los atributos personalizados definidos poseen una función especial, y esta función es habilitada con los eventos de las etiquetas personalizadas,y por ende, se deja el valor básico de applyAll como false.
+						Añadir atributos personalizados.<br>
+Al definir los atributos, se puede colocar true en el valor de applyAll con el fin de utlizarlos en todas las etiquetas.<br>
+Cuando el valor es false, se habilita la función del atributo al usarlo en la etiqueta personalizada. En general,
+los atributos personalizados definidos poseen una función especial, y esta función es habilitada con los eventos de las etiquetas personalizadas,
+y por ende, se deja el valor básico de applyAll como false.
 						
 						
 					</div>
 					
 					
 					
-					<pre class="code">//scriptsg.addCustomAttr({	name: "sg-fadeIn",	init: function( element, attrValue ){		$( element ).fadeIn();	},	applyAll: true});//html&lt;div sg-fadeIn&gt; ABCD &lt;/div&gt;</pre>
+					<pre class="code">//script
+sg.addCustomAttr({
+	name: "sg-fadeIn",
+	init: function( element, attrValue ){
+		$( element ).fadeIn();
+	},
+	applyAll: true
+});
+//html
+&lt;div sg-fadeIn&gt; ABCD &lt;/div&gt;</pre>
 					
-					<pre class="code">//scriptsg.addCustomAttr({	name: "sg-color",	init: function( element, attrValue ){		$( element ).css( "color", attrValue );	},	applyAll: true});//html&lt;div sg-color="red"&gt; ABCD &lt;/div&gt;</pre>
+					<pre class="code">//script
+sg.addCustomAttr({
+	name: "sg-color",
+	init: function( element, attrValue ){
+		$( element ).css( "color", attrValue );
+	},
+	applyAll: true
+});
+//html
+&lt;div sg-color="red"&gt; ABCD &lt;/div&gt;</pre>
 					
-					<pre class="code">sg.addCustomAttr({	name: "sg-alert",	action: function( element, attrValue ){		if( attrValue ) alert( attrValue );	}});</pre>
+					<pre class="code">sg.addCustomAttr({
+	name: "sg-alert",
+	action: function( element, attrValue ){
+		if( attrValue ) alert( attrValue );
+	}
+});</pre>
 					
 					
 					
@@ -974,7 +1004,8 @@ ul.inheritsList
 									<span class="light fixedFont">{function}</span> <b>option.action</b>
 									
 								</dt>
-								<dd>- función a ejecutar: se ejecuta cuando se procede los eventos de la etiquetaspersonalizadas que utilitza estos atributos personalizados.</dd>
+								<dd>- función a ejecutar: se ejecuta cuando se procede los eventos de la etiquetas
+personalizadas que utilitza estos atributos personalizados.</dd>
 							
 								<dt>
 									<span class="light fixedFont">{boolean}</span> <b>option.applyAll</b>
@@ -1008,16 +1039,44 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						Añadir etiquetas personalizadas.<br>El mecanismo básico de la etiqueta personalizada es reemplazar las líneas de código html. <br>Después de la carga de la página, se busca las etiquetas personalizadas en el body de html, y las reemplaza a las etiquetas básicas definidas. <br>Al definir las etiquetas personalizadas, se escribe el nombre de la etiqueta original en originTag. Puede ser que las etiquetas personalizadas tengan evento o no.Se puede crear una etiqueta personalizada que sirve para cambiar la estructura interna de la etiqueta definiendo una función en tagInit.Por otra parte, se puede crear las etiquetas personalizadas que se habilitan con eventos específicos con una definión de función eventHandle.
+						Añadir etiquetas personalizadas.<br>
+El mecanismo básico de la etiqueta personalizada es reemplazar las líneas de código html. <br>
+Después de la carga de la página, se busca las etiquetas personalizadas en el body de html, y las reemplaza a las etiquetas básicas definidas. <br>
+Al definir las etiquetas personalizadas, se escribe el nombre de la etiqueta original en originTag. Puede ser que las etiquetas personalizadas tengan evento o no.
+Se puede crear una etiqueta personalizada que sirve para cambiar la estructura interna de la etiqueta definiendo una función en tagInit.
+Por otra parte, se puede crear las etiquetas personalizadas que se habilitan con eventos específicos con una definión de función eventHandle.
 						
 						
 					</div>
 					
 					
 					
-					<pre class="code">//scriptsg.addCustomTag({	name: "sg-depth",	tagInit: function( element ){		$("&lt;p&gt;&lt;/p&gt;").append( $( element ).contents() ).appendTo( $( element ) );	}});//html&lt;sg-depth&gt; ABCD &lt;sg-depth&gt;//result&lt;sg-depth&gt; &lt;p&gt;ABCD&lt;/p&gt; &lt;sg-depth&gt;</pre>
+					<pre class="code">//script
+sg.addCustomTag({
+	name: "sg-depth",
+	tagInit: function( element ){
+		$("&lt;p&gt;&lt;/p&gt;").append( $( element ).contents() ).appendTo( $( element ) );
+	}
+});
+//html
+&lt;sg-depth&gt; ABCD &lt;sg-depth&gt;
+//result
+&lt;sg-depth&gt; &lt;p&gt;ABCD&lt;/p&gt; &lt;sg-depth&gt;</pre>
 					
-					<pre class="code">//scriptsg.addCustomTag({	name: "sg-h1",	attr: [ "sg-color", "sg-alert" ],	tagInit: function( element ){		$( element ).css( "font-size", "40pt" );	},	event: "click",	eventHandle: function( element ){		$( element ).animate( {"font-size": "80pt"} );	}});//html&lt;sg-h1 sc-color="blue" sg-alert="hello!"&gt; ABCD &lt;/sg-h1&gt;</pre>
+					<pre class="code">//script
+sg.addCustomTag({
+	name: "sg-h1",
+	attr: [ "sg-color", "sg-alert" ],
+	tagInit: function( element ){
+		$( element ).css( "font-size", "40pt" );
+	},
+	event: "click",
+	eventHandle: function( element ){
+		$( element ).animate( {"font-size": "80pt"} );
+	}
+});
+//html
+&lt;sg-h1 sc-color="blue" sg-alert="hello!"&gt; ABCD &lt;/sg-h1&gt;</pre>
 					
 					
 					
@@ -1154,7 +1213,9 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">sg.disabled( this );sg.disabled( '#myButton' );sg.disabled( $.getCustomTag( 'sg-btn-hide' ) );</pre>
+					<pre class="code">sg.disabled( this );
+sg.disabled( '#myButton' );
+sg.disabled( $.getCustomTag( 'sg-btn-hide' ) );</pre>
 					
 					
 					
@@ -1201,7 +1262,9 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">sg.enabled( this );sg.enabled( '#myButton' );sg.enabled( $.getCustomTag( 'sg-btn-hide' ) );</pre>
+					<pre class="code">sg.enabled( this );
+sg.enabled( '#myButton' );
+sg.enabled( $.getCustomTag( 'sg-btn-hide' ) );</pre>
 					
 					
 					
@@ -1248,7 +1311,13 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">sg.extend({	myfunc: function( ){		//TO DO	}});sg.myfunc();</pre>
+					<pre class="code">sg.extend({
+	myfunc: function( ){
+		//TO DO
+	}
+});
+
+sg.myfunc();</pre>
 					
 					
 					
@@ -1295,7 +1364,8 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">sg.fadeIn( 'p' );	//$( 'p' ).fadeIn( 'slow' );sg.fadeIn( this );	//$( this ).fadeIn( 'slow' );</pre>
+					<pre class="code">sg.fadeIn( 'p' );	//$( 'p' ).fadeIn( 'slow' );
+sg.fadeIn( this );	//$( this ).fadeIn( 'slow' );</pre>
 					
 					
 					
@@ -1335,7 +1405,8 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">sg.fadeOut( 'p' );	//$( 'p' ).fadeOut( 'slow' );sg.fadeOut( this );	//$( this ).fadeOut( 'slow' );</pre>
+					<pre class="code">sg.fadeOut( 'p' );	//$( 'p' ).fadeOut( 'slow' );
+sg.fadeOut( this );	//$( this ).fadeOut( 'slow' );</pre>
 					
 					
 					
@@ -1375,7 +1446,8 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">sg.hide( 'p' );	//$( 'p' ).hide();sg.hide( this ); //$( this ).hide();</pre>
+					<pre class="code">sg.hide( 'p' );	//$( 'p' ).hide();
+sg.hide( this ); //$( this ).hide();</pre>
 					
 					
 					
@@ -1463,16 +1535,22 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						En el caso de que se pase la función (callback) como función de inicialización o parámetro, se ejecuta primero la inicialización y luego la función.<br>En el caso de sg.init(), se ejecuta primero html content(contenido de html) internamente y la inicialización.<br>Si hay algo que se debe ejecutar después de la inicialización, se pasa la función (callback) al parámetro de init().
+						En el caso de que se pase la función (callback) como función de inicialización o parámetro, se ejecuta primero la inicialización y luego la función.<br>
+En el caso de sg.init(), se ejecuta primero html content(contenido de html) internamente y la inicialización.<br>
+Si hay algo que se debe ejecutar después de la inicialización, se pasa la función (callback) al parámetro de init().
 						
 						
 					</div>
 					
 					
 					
-					<pre class="code">sg.setStage( "#stage" );sg.setScaleMode( "showall" );sg.init();</pre>
+					<pre class="code">sg.setStage( "#stage" );
+sg.setScaleMode( "showall" );
+sg.init();</pre>
 					
-					<pre class="code">sg.setStage( "#stage" );sg.setScaleMode( "showall" );sg.init( function(){} );</pre>
+					<pre class="code">sg.setStage( "#stage" );
+sg.setScaleMode( "showall" );
+sg.init( function(){} );</pre>
 					
 					
 					
@@ -1855,9 +1933,11 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">sg.setStage( "#stage" );sg.setScaleMode( "showall" );</pre>
+					<pre class="code">sg.setStage( "#stage" );
+sg.setScaleMode( "showall" );</pre>
 					
-					<pre class="code">sg.setStage( "#stage" );sg.setScaleMode( "exactfit" );</pre>
+					<pre class="code">sg.setStage( "#stage" );
+sg.setScaleMode( "exactfit" );</pre>
 					
 					
 					
@@ -1937,7 +2017,8 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">sg.show( 'p' );	//$( 'p' ).show();sg.show( this ); //$( this ).show();</pre>
+					<pre class="code">sg.show( 'p' );	//$( 'p' ).show();
+sg.show( this ); //$( this ).show();</pre>
 					
 					
 					
@@ -1977,7 +2058,21 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">sg.extend({	myfunc: function( str ){		return '<<' + str + '>>';	}});sg.myfunc( 'abc' ); //return "<<abc>>"sg.extend({	myfunc: function( str ){		return this.super( str.toUpperCase() );	}});sg.myfunc( 'abc' ); //return "<<ABC>>"</pre>
+					<pre class="code">sg.extend({
+	myfunc: function( str ){
+		return '&lt;&lt;' + str + '&gt;&gt;';
+	}
+});
+
+sg.myfunc( 'abc' ); //return &quot;&lt;&lt;abc&gt;&gt;&quot;
+
+sg.extend({
+	myfunc: function( str ){
+		return this.super( str.toUpperCase() );
+	}
+});
+
+sg.myfunc( 'abc' ); //return &quot;&lt;&lt;ABC&gt;&gt;&quot;</pre>
 					
 					
 					

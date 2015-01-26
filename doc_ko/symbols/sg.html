@@ -628,7 +628,8 @@ ul.inheritsList
 				</div>
 				
 				<div class="description">
-					sg library는 jQuery를 필요로 하는 library입니다.<br>scaleMode설정, custom attribute와 custom tag제작 API를 제공합니다.<br>
+					sg library는 jQuery를 필요로 하는 library입니다.<br>
+scaleMode설정, custom attribute와 custom tag제작 API를 제공합니다.<br>
 					<br /><i>Author: </i>taejin (drumtj@gmail.com).
 				</div>
 				
@@ -933,18 +934,45 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						커스텀 속성 등록.<br>속성 정의시 applyAll값을 true로 설정하면 모든 태그에서 사용 할 수 있다.<br>applyAll값이 false면 custom tag에 명시될 때 속성의 기능이 사용된다.<br>보통 정의되는 커스텀속성은 특별한 기능을 가지고 있고, 이 기능은 이벤트가 있는 커스텀태그가 동작할 때 실행 되도록 하기 때문에applyAll값은 기본값인 false로 그대로 둔다.
+						커스텀 속성 등록.<br>
+속성 정의시 applyAll값을 true로 설정하면 모든 태그에서 사용 할 수 있다.<br>
+applyAll값이 false면 custom tag에 명시될 때 속성의 기능이 사용된다.<br>
+보통 정의되는 커스텀속성은 특별한 기능을 가지고 있고, 이 기능은 이벤트가 있는 커스텀태그가 동작할 때 실행 되도록 하기 때문에
+applyAll값은 기본값인 false로 그대로 둔다.
 						
 						
 					</div>
 					
 					
 					
-					<pre class="code">//scriptsg.addCustomAttr({	name: "sg-fadeIn",	init: function( element, attrValue ){		$( element ).fadeIn();	},	applyAll: true});//html&lt;div sg-fadeIn&gt; ABCD &lt;/div&gt;</pre>
+					<pre class="code">//script
+sg.addCustomAttr({
+	name: "sg-fadeIn",
+	init: function( element, attrValue ){
+		$( element ).fadeIn();
+	},
+	applyAll: true
+});
+//html
+&lt;div sg-fadeIn&gt; ABCD &lt;/div&gt;</pre>
 					
-					<pre class="code">//scriptsg.addCustomAttr({	name: "sg-color",	init: function( element, attrValue ){		$( element ).css( "color", attrValue );	},	applyAll: true});//html&lt;div sg-color="red"&gt; ABCD &lt;/div&gt;</pre>
+					<pre class="code">//script
+sg.addCustomAttr({
+	name: "sg-color",
+	init: function( element, attrValue ){
+		$( element ).css( "color", attrValue );
+	},
+	applyAll: true
+});
+//html
+&lt;div sg-color="red"&gt; ABCD &lt;/div&gt;</pre>
 					
-					<pre class="code">sg.addCustomAttr({	name: "sg-alert",	action: function( element, attrValue ){		if( attrValue ) alert( attrValue );	}});</pre>
+					<pre class="code">sg.addCustomAttr({
+	name: "sg-alert",
+	action: function( element, attrValue ){
+		if( attrValue ) alert( attrValue );
+	}
+});</pre>
 					
 					
 					
@@ -1008,16 +1036,42 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						커스텀 태그 등록.<br>커스텀 태그의 기본 매커니즘은 문자열 치환이다.<br> 페이지로딩 후 body의 html에서 커스텀태그를 찾아 정의된 기본태그로 바꾼다.<br>커스텀 태그 정의시 치환할 원래의 태그 이름을 originTag에 적어준다. 커스텀 태그는 이벤트가 있을 수도 있고 없을 수도 있다. tagInit에 함수를 정의해서태그의 내부 구조만 바꾸는 커스텀 태그를 만들 수도 있고, event이름과 eventHandle에 함수를 정의하여 특정 이벤트시 동작하는 커스텀 태그를 만들 수도 있다.
+						커스텀 태그 등록.<br>
+커스텀 태그의 기본 매커니즘은 문자열 치환이다.<br> 페이지로딩 후 body의 html에서 커스텀태그를 찾아 정의된 기본태그로 바꾼다.<br>
+커스텀 태그 정의시 치환할 원래의 태그 이름을 originTag에 적어준다. 커스텀 태그는 이벤트가 있을 수도 있고 없을 수도 있다. tagInit에 함수를 정의해서
+태그의 내부 구조만 바꾸는 커스텀 태그를 만들 수도 있고, event이름과 eventHandle에 함수를 정의하여 특정 이벤트시 동작하는 커스텀 태그를 만들 수도 있다.
 						
 						
 					</div>
 					
 					
 					
-					<pre class="code">//scriptsg.addCustomTag({	name: "sg-depth",	tagInit: function( element ){		$("&lt;p&gt;&lt;/p&gt;").append( $( element ).contents() ).appendTo( $( element ) );	}});//html&lt;sg-depth&gt; ABCD &lt;sg-depth&gt;//result&lt;sg-depth&gt; &lt;p&gt;ABCD&lt;/p&gt; &lt;sg-depth&gt;</pre>
+					<pre class="code">//script
+sg.addCustomTag({
+	name: "sg-depth",
+	tagInit: function( element ){
+		$("&lt;p&gt;&lt;/p&gt;").append( $( element ).contents() ).appendTo( $( element ) );
+	}
+});
+//html
+&lt;sg-depth&gt; ABCD &lt;sg-depth&gt;
+//result
+&lt;sg-depth&gt; &lt;p&gt;ABCD&lt;/p&gt; &lt;sg-depth&gt;</pre>
 					
-					<pre class="code">//scriptsg.addCustomTag({	name: "sg-h1",	attr: [ "sg-color", "sg-alert" ],	tagInit: function( element ){		$( element ).css( "font-size", "40pt" );	},	event: "click",	eventHandle: function( element ){		$( element ).animate( {"font-size": "80pt"} );	}});//html&lt;sg-h1 sc-color="blue" sg-alert="hello!"&gt; ABCD &lt;/sg-h1&gt;</pre>
+					<pre class="code">//script
+sg.addCustomTag({
+	name: "sg-h1",
+	attr: [ "sg-color", "sg-alert" ],
+	tagInit: function( element ){
+		$( element ).css( "font-size", "40pt" );
+	},
+	event: "click",
+	eventHandle: function( element ){
+		$( element ).animate( {"font-size": "80pt"} );
+	}
+});
+//html
+&lt;sg-h1 sc-color="blue" sg-alert="hello!"&gt; ABCD &lt;/sg-h1&gt;</pre>
 					
 					
 					
@@ -1154,7 +1208,9 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">sg.disabled( this );sg.disabled( '#myButton' );sg.disabled( $.getCustomTag( 'sg-btn-hide' ) );</pre>
+					<pre class="code">sg.disabled( this );
+sg.disabled( '#myButton' );
+sg.disabled( $.getCustomTag( 'sg-btn-hide' ) );</pre>
 					
 					
 					
@@ -1201,7 +1257,9 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">sg.enabled( this );sg.enabled( '#myButton' );sg.enabled( $.getCustomTag( 'sg-btn-hide' ) );</pre>
+					<pre class="code">sg.enabled( this );
+sg.enabled( '#myButton' );
+sg.enabled( $.getCustomTag( 'sg-btn-hide' ) );</pre>
 					
 					
 					
@@ -1248,7 +1306,13 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">sg.extend({	myfunc: function( ){		//TO DO	}});sg.myfunc();</pre>
+					<pre class="code">sg.extend({
+	myfunc: function( ){
+		//TO DO
+	}
+});
+
+sg.myfunc();</pre>
 					
 					
 					
@@ -1295,7 +1359,8 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">sg.fadeIn( 'p' );	//$( 'p' ).fadeIn( 'slow' );sg.fadeIn( this );	//$( this ).fadeIn( 'slow' );</pre>
+					<pre class="code">sg.fadeIn( 'p' );	//$( 'p' ).fadeIn( 'slow' );
+sg.fadeIn( this );	//$( this ).fadeIn( 'slow' );</pre>
 					
 					
 					
@@ -1335,7 +1400,8 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">sg.fadeOut( 'p' );	//$( 'p' ).fadeOut( 'slow' );sg.fadeOut( this );	//$( this ).fadeOut( 'slow' );</pre>
+					<pre class="code">sg.fadeOut( 'p' );	//$( 'p' ).fadeOut( 'slow' );
+sg.fadeOut( this );	//$( this ).fadeOut( 'slow' );</pre>
 					
 					
 					
@@ -1375,7 +1441,8 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">sg.hide( 'p' );	//$( 'p' ).hide();sg.hide( this ); //$( this ).hide();</pre>
+					<pre class="code">sg.hide( 'p' );	//$( 'p' ).hide();
+sg.hide( this ); //$( this ).hide();</pre>
 					
 					
 					
@@ -1463,16 +1530,22 @@ ul.inheritsList
 					
 					</div>
 					<div class="description">
-						초기 실행 함수, parameter로 callback함수가 전달 된다면 초기 설정 진행 후에 callback함수 실행.<br>sg.init()을 할 경우 내부에서 html content가 로드된 후 초기설정을 진행 하도록 처리한다.<br>초기화 후 실행할 내용이 있다면 init()의 parameter로 callback 함수를 넘겨준다.
+						초기 실행 함수, parameter로 callback함수가 전달 된다면 초기 설정 진행 후에 callback함수 실행.<br>
+sg.init()을 할 경우 내부에서 html content가 로드된 후 초기설정을 진행 하도록 처리한다.<br>
+초기화 후 실행할 내용이 있다면 init()의 parameter로 callback 함수를 넘겨준다.
 						
 						
 					</div>
 					
 					
 					
-					<pre class="code">sg.setStage( "#stage" );sg.setScaleMode( "showall" );sg.init();</pre>
+					<pre class="code">sg.setStage( "#stage" );
+sg.setScaleMode( "showall" );
+sg.init();</pre>
 					
-					<pre class="code">sg.setStage( "#stage" );sg.setScaleMode( "showall" );sg.init( function(){} );</pre>
+					<pre class="code">sg.setStage( "#stage" );
+sg.setScaleMode( "showall" );
+sg.init( function(){} );</pre>
 					
 					
 					
@@ -1855,9 +1928,11 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">sg.setStage( "#stage" );sg.setScaleMode( "showall" );</pre>
+					<pre class="code">sg.setStage( "#stage" );
+sg.setScaleMode( "showall" );</pre>
 					
-					<pre class="code">sg.setStage( "#stage" );sg.setScaleMode( "exactfit" );</pre>
+					<pre class="code">sg.setStage( "#stage" );
+sg.setScaleMode( "exactfit" );</pre>
 					
 					
 					
@@ -1937,7 +2012,8 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">sg.show( 'p' );	//$( 'p' ).show();sg.show( this ); //$( this ).show();</pre>
+					<pre class="code">sg.show( 'p' );	//$( 'p' ).show();
+sg.show( this ); //$( this ).show();</pre>
 					
 					
 					
@@ -1977,7 +2053,21 @@ ul.inheritsList
 					
 					
 					
-					<pre class="code">sg.extend({	myfunc: function( str ){		return '<<' + str + '>>';	}});sg.myfunc( 'abc' ); //return "<<abc>>"sg.extend({	myfunc: function( str ){		return this.super( str.toUpperCase() );	}});sg.myfunc( 'abc' ); //return "<<ABC>>"</pre>
+					<pre class="code">sg.extend({
+	myfunc: function( str ){
+		return '&lt;&lt;' + str + '&gt;&gt;';
+	}
+});
+
+sg.myfunc( 'abc' ); //return &quot;&lt;&lt;abc&gt;&gt;&quot;
+
+sg.extend({
+	myfunc: function( str ){
+		return this.super( str.toUpperCase() );
+	}
+});
+
+sg.myfunc( 'abc' ); //return &quot;&lt;&lt;ABC&gt;&gt;&quot;</pre>
 					
 					
 					

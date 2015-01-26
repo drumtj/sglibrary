@@ -5,14 +5,15 @@
 <title>test</title>
 <link rel="stylesheet" type="text/css" href="../../common/css/sg.css">
 <script type="text/javascript" src="../../common/lib/jquery/jquery-1.11.1.min.js"></script>
-<script type="text/javascript" src="../../common/lib/jquery/jquery-ui.min.js"></script>
+<script type="text/javascript" src="../../common/lib/jquery/jquery-ui.js"></script>
 
 <script type="text/javascript" src="../../common/lib/sg/sg-1.0.js"></script>
 <script type="text/javascript" src="../../common/lib/sg/sg.attr.defaultPack-1.0.js"></script>
 <script type="text/javascript" src="../../common/lib/sg/sg.tag.defaultPack-1.0.js"></script>
+<script type="text/javascript" src="../../common/lib/sg/sg.attr.draggable-1.1.js"></script>
 
 <script type="text/javascript">
-
+console.log($,$.ui);
 sg.addCustomAttr({
 	name: "sg-color",
 	init: function( element, attrValue ){
@@ -118,6 +119,7 @@ sg.init(function(){
         
         <div sg-fadein>ccccccccc</div>
         </h1>
-    </div>
+        <div sg-draggable>drag</div>
+	</div>
 </body>
 </html>

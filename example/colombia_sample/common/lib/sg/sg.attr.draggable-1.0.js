@@ -10,6 +10,7 @@
 	
 	
 	var zidx = 100;
+	var isDrag = false;
 	
 	function setDraggable(selector, options){
 				
@@ -24,7 +25,7 @@
 		}
 		
 		$(selector).each(function(i,e){
-			sg.setDefaultAttr( this );
+			sg.setOption( this );
 			var $this = $( this );
 			var draggableOptions = {
 				dropSelector: options.dropSelector || $this.attr( "data-sg-drop-selector" ),
@@ -66,7 +67,7 @@
 				})(),
 				//cursor: 'pointer',  //Since inherit the value of the parent
 				revert: function(){
-					//$.scrollLock(false);
+					isDrag = false;
 					
 					var options = this.data( "draggableOptions" )
 						, failAction = options.fail
@@ -188,7 +189,10 @@
 				
 				start : function( e, ui ){
 					var $this = $( this );
-					//$.scrollLock( true );
+					
+					isDrag = true;
+					sg.$body.css( "overflow-y", "hidden" );
+					
 					var op = $this.data( "draggableOptions" );
 					
 					if( $this.css( "position" ) != "absolute" && !op.clone ){
@@ -206,6 +210,10 @@
 					if( op && op.clone ){
 						$this.data( "helper", ui.helper );
 					}
+				},
+				
+				stop: function( e ){
+					if( !isDrag ) sg.$body.css( "overflow-y", "auto" );
 				},
 				
 				drag: function( e, ui ){
@@ -310,7 +318,7 @@
 	sg.addCustomAttr({
 		name: "sg-draggable",
 		init: function(){
-			sg.setDraggable( $.getCustomTag( "sg-draggable" ) );
+			sg.setDraggable( "[data-sg-draggable]" );
 		},
 		applyAll: true
 	});
