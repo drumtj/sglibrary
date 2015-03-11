@@ -159,7 +159,7 @@ author: taejin ( drumtj@gmail.com )
 	function getSoundObj(url) {
 		var i, len = sounds.length;
 		for (i = 0; i < len; i++) {
-			if (url == sounds[i].getAttribute("data-relativeSrc")) {
+			if (url == sounds[i].getAttribute("data-relative-src")) {
 				return sounds[i];
 			}
 		}
@@ -205,26 +205,60 @@ author: taejin ( drumtj@gmail.com )
 	
 				var audio = getSoundObj( soundUrl );
 				if ( !audio ) {
-					//#150305
-					/*
+					
 					audio = new Audio();
 					audio.src = soundUrl;
-					audio.setAttribute( "data-relativeSrc", soundUrl );
+					audio.setAttribute( "data-relative-src", soundUrl );
 					audio.load();
-					*/
-					var $a = $('<audio></audio>');
-					$a.attr('src', soundUrl);
-					$a.attr('data-relativeSrc', soundUrl).load();
-					audio = $a[0];
 					sounds.push( audio );
+					
+					/*
+					<audio>
+					  <source src="mov_bbb.mp4" type="audio/mp3">
+					</audio>
+					*/
+					/*
+					var $a = $('<audio></audio>');
+					var $s = $('<source src="'+soundUrl+'" type="audio/mpeg">');
+					$a.append($s);
+					$a.attr('data-relative-src', soundUrl);
+					sg.$body.append($a);
+					audio = $a[0];
+					//if(audio) audio.load();
+					sounds.push( audio );
+					console.log("load", audio);
+					if(audio){
+						setTimeout(function(a){
+							a.load();
+							sounds.push( a );
+						},300,audio);
+					}
+					*/
+					
+					/*
+					var $a = $('<audio></audio>');
+					$a.attr('preload', 'auto');
+					$a.attr('src', soundUrl);
+					$a.attr('data-relative-src', soundUrl);
+					sg.$body.append($a);
+					audio = $a[0];
+					console.log("load", audio);
+					if(audio){
+						setTimeout(function(audio){
+							audio.load();
+							sounds.push( audio );
+						},300,audio);
+					}
+					*/
+					
+					
 				}
 				if ( playFlag == true || typeof playFlag === "undefined" ) {
 					try {
 						audio.currentTime = 0;
 					} catch (e) {}
-					//#150305
 					try{
-						audio.play();
+						if(audio) audio.play();
 					}catch(e) { console.error("not support 'audio tag'"); }
 				}
 			}
