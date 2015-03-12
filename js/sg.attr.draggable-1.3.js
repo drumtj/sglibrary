@@ -146,7 +146,7 @@
 			ilen = $object.length;
 			chk = false;
 			//console.log($this);
-			console.log($object.length);	
+			//console.log($object.length);	
 			for(i=0; i<ilen; i++){
 				$target = $object.eq(i);
 				objectToTestRect = $target.getRect();
@@ -438,7 +438,7 @@
 						});
 					}
 					
-					console.log( this.data("originPos") );
+					//console.log( this.data("originPos") );
 					
 					if( hit ){
 						//disconnect to previous connection

@@ -219,20 +219,22 @@ author: taejin ( drumtj@gmail.com )
 					if( temparr ){
 						var ext = temparr[0].replace('.','');
 						if( ext == "mp3" ) ext = "mpeg";
-						var type = "audio/" + ext;
-						var $a = $('<audio></audio>');
-						var $s = $('<source src="'+soundUrl+'" type="'+type+'">');
-						$a.append($s);
-						$a.attr('data-relative-src', soundUrl);
-						sg.$body.append($a);
-						audio = $a[0];
-						if(audio){
-							try{
-								audio.load();
-							}catch(e){
-								console.error( e );
+						if( /mpeg|wav|ogg/.test(ext) ){
+							var type = "audio/" + ext;
+							var $a = $('<audio></audio>');
+							var $s = $('<source src="'+soundUrl+'" type="'+type+'">');
+							$a.append($s);
+							$a.attr('data-relative-src', soundUrl);
+							sg.$body.append($a);
+							audio = $a[0];
+							if(audio){
+								try{
+									audio.load();
+								}catch(e){
+									console.error( e );
+								}
+								sounds.push( audio );
 							}
-							sounds.push( audio );
 						}
 					}
 				}
