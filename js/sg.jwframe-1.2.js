@@ -9,6 +9,7 @@ by taejin
 */
 /*
  2015-03-16 update 1.2
+ 2015-03-17 update 1.2
 */
 
 
@@ -74,9 +75,11 @@ by taejin
 				}	
 			}
 			
+			/*
 			if( opt.src.indexOf("http://www.youtube.com/") == 0 && typeof opt.scaleControl === "undefined" ){
 				opt.scaleControl = false;
 			}
+			*/
 			
 			for( var o in movieDopt ) if( movieDopt[o] != null && (typeof opt[o] === "undefined" || opt[o] === "") ) opt[o] = movieDopt[o];
 			
