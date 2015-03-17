@@ -14,8 +14,6 @@ by taejin
 
 (function(sg){
 	
-	if( !require ) throw new Error("require 'require.js' for sg.jwframe module");
-	
 	var movieDopt = {
 		width: "100%",
 		height: "100%",
