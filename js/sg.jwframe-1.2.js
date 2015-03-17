@@ -98,7 +98,7 @@ by taejin
 				var childId = eId + '_child';
 				$element.append('<div id="' + childId + '"></div>').width(opt.width).height(opt.height);
 				
-				require(["jwplayer"], function(){
+				function setLocalMovie( jwplayer ){
 					if( !jwplayer ) throw new Error("require jwplayer for sg.jwframe module");
 					//not apply scale for jwplayer html5 mode
 					//mp4, m4v, f4v, mov flv , m4a, f4a mp3  smil
@@ -211,7 +211,15 @@ by taejin
 					}else{
 						$element.empty().html("not support file type");
 					}
-				});
+				};
+				
+				if( window.jwplayer ){
+					setLocalMovie( window.jwplayer );
+				}else if( window.require ){
+					require(["jwplayer"], setLocalMovie);
+				}else{
+					console.error( "require jwplayer." );
+				}
 			}else{
 				var $iframe = $('<iframe src="'+ src +'" width="'+ opt.width +'" height="'+ opt.height +'" frameborder="0" scrolling="no" allowfullscreen></iframe>');
 				$element.empty().append( $iframe ).width(opt.width).height(opt.height);
