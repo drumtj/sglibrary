@@ -21,7 +21,7 @@ by taejin
 		src: null,
 		autoStart: false,
 		skin: null,
-		scaleControl: true,
+		scaleControl: false,
 		localSources: []
 		/*
 		localSources: [{
