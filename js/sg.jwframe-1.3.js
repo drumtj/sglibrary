@@ -101,7 +101,7 @@ by taejin
 				}
 				var eId = element.id;
 				var childId = eId + '_child';
-				$element.append('<div id="' + childId + '"></div>').width(opt.width).height(opt.height);
+				$element.empty().append('<div id="' + childId + '"></div>').width(opt.width).height(opt.height);
 				
 				function setLocalMovie( jwplayer ){
 					if( !jwplayer ) throw new Error("require jwplayer for sg.jwframe module");
@@ -205,7 +205,7 @@ by taejin
 						
 					}else if( html5Support ){
 						console.log("video tag local movie");
-						$element.empty().html(
+						$element.html(
 							'<video id="elementJs" type="video/mp4" src="'
 							+ opt.localSources[html5SupportIndex].file
 							+ '" width="' + opt.width
@@ -217,7 +217,7 @@ by taejin
 							+ '></video>'
 						).width(opt.width).height(opt.height);
 					}else{
-						$element.empty().html("not support file type");
+						$element.html("not support file type");
 					}
 				};
 				
@@ -236,36 +236,33 @@ by taejin
 			
 			
 			//#150318
-			var watchIntv;
-			var firstCheck = true;
+			$element.off("mouseleave");
 			$element.on("mouseleave", function(e){
-				firstCheck = false;
 				$element.off("mouseleave");
-			});
-			
-			if( typeof opt.onDisabled === "function" ){
-				watchIntv = setInterval(function(element){
-					
-					var e = element;
-					var renderCheck = true;
-					if( !e ){clearInterval( watchIntv );return;}
-					
-					if( firstCheck ) return;
-					do{
-						if( e == document ) break;
-						renderCheck = !(e.style.display == "none" || e.style.visibility == "hidden");
-						if( !renderCheck ) break;
-					}while( (e = e.parentNode) );
-					if( !renderCheck ){
-						clearInterval( watchIntv );
-						try{
-							opt.onDisabled.call( element );
-						}catch(e){
-							console.error
+				var watchIntv;
+				if( typeof opt.onDisabled === "function" ){
+					watchIntv = setInterval(function(element){
+						var e = element;
+						var renderCheck = true;
+						if( !e ){clearInterval( watchIntv );return;}
+						
+						do{
+							if( e == document ) break;
+							renderCheck = !(e.style.display == "none" || e.style.visibility == "hidden");
+							if( !renderCheck ) break;
+						}while( (e = e.parentNode) );
+						if( !renderCheck ){
+							clearInterval( watchIntv );
+							try{
+								console.log( "jwframe onDisabled" );
+								opt.onDisabled.call( element );
+							}catch(e){
+								console.error(e);
+							}
 						}
-					}
-				}, 200, element);
-			}
+					}, 200, element);
+				}
+			});
 		},
 		
 		/**
