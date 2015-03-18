@@ -264,7 +264,7 @@ by taejin
 							console.error
 						}
 					}
-				}, 500, element);
+				}, 200, element);
 			}
 		},
 		
