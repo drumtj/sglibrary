@@ -1,0 +1,50 @@
+@charset "utf-8";
+/* CSS Document */
+.tab-container{margin-top:10px;}
+.tab-container .etabs { margin: 0; padding: 0; text-align:right;}
+.tab-container .etabs .tab { 
+	display: inline-block;
+	zoom:1;
+	*display:inline;
+	background: #e3e2e1;
+	border-bottom: none;
+	   -moz-border-radius: 10px 10px 0 0;
+	-webkit-border-radius:10px 10px 0 0;
+	    -ms-border-radius:10px 10px 0 0;
+	     -o-border-radius:10px 10px 0 0;
+	        border-radius:10px 10px 0 0;
+	text-align:center;
+	margin-left:5px;
+ 	   -moz-box-shadow:2px -2px #ccc;
+	-webkit-box-shadow:2px -2px #ccc;
+		-ms-box-shadow:2px -2px #ccc;
+		 -o-box-shadow:2px -2px #ccc;
+			box-shadow:2px -2px #ccc;
+}
+.tab-container .etabs .tab a { 
+	font-size: 36px; min-width:50px; 
+	line-height: 1em; 
+	display: block; 
+	padding: 5px 10px; 
+	outline: none; 
+	color:#334d5c; 
+	text-decoration:none;
+	}
+.tab-container .etabs .tab a:hover { }
+.tab-container .etabs .tab.active { 
+	background: #76a9da; 
+	padding-top: 6px; 
+	position: relative; 
+	top: 1px;
+	color:#fff; 
+	}
+.tab-container .etabs .tab a.active {color:#fff; }
+.tab-container .panel-container { 
+	background: #76a9da;	
+	padding: 10px;
+		-moz-border-radius: 10px 0 10px 10px;
+	-webkit-border-radius: 10px 0 10px 10px;
+		-ms-border-radius: 10px 0 10px 10px;
+		 -o-border-radius: 10px 0 10px 10px;
+			border-radius: 10px 0 10px 10px;
+}
