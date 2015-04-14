@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Actividad 2</title>
+<link rel="stylesheet" type="text/css" href="../../common/css/sg.css">
+<link rel="stylesheet" type="text/css" href="../../common/css/normalize.css">
+<link rel="stylesheet" type="text/css" href="../../css/GGD.css">
+<link rel="stylesheet" type="text/css" href="../../skins/S_GGD/S_GGD.css">
+<link rel="stylesheet" href="css/grid.css">
+<link href="css/S_G08_U02_L01_03_02.css" rel="stylesheet" type="text/css">
+<script type="text/javascript" src="../../common/lib/require/require.js"></script>
+<script type="text/javascript" src="../../common/js/main.js"></script>
+<script>
+function init(){
+	require(["jquery-zoomooz"], function(){
+		$(".zoomButton").zoomButton();
+	});
+}
+</script>
+</head>
+<body>
+	<div id="stage" sg-scalemode="showall">
+		<div id="content" class="ggd_contenedorGeneral">
+			<header class="ggd_header_S">
+				<div class="ggd_icon ggd_icon_S_contenido"></div> 
+				<div class="ggd_title">La capa de valencia</div>
+			</header> 
+			<div class="ggd_contenido ggd_contenido_S">
+				<div class="ggd_nombre_S">Contenido</div>                
+ 				<!-- INCIO CONTENIDO (CONTENT) -->
+				<div class="ggd_contenedorObjetivos">
+                	<div class="ggd_text_exp">Haz <span class="icon click">clic</span> para ver la información</div>
+                    <div class="ggd_text_act">Actividad 2</div>
+					<div id="contenedor">
+                    <div class="grid_container">
+                    	<sg-item-page sg-key="1" sg-group="1">
+                            	<div class="grid grid-pad">
+                                	<div class="col-1-1"><p class="texto1">Observa el mapa Interactivo y navega por él:</p></div>
+                                </div>
+                                <div class="grid">
+                                	<div class="zoomViewport demo">
+                                    	<div class="zoomContainer">
+                                        	<div id="z1" class="zone zoomTarget"></div>                                            
+                                            <div id="z2" class="zone zoomTarget"></div>
+                                            <div id="z4" class="zone zoomTarget"></div>
+                                            <div id="z3" class="zone zoomTarget"></div> 
+                                            <div id="z5" class="zone zoomTarget"></div>
+                                            <div id="z5-1" class="zone zoomTarget"></div>                                            
+                                            <div id="z5-3" class="zone zoomTarget"></div>
+                                            <div id="z5-4" class="zone zoomTarget"></div>
+                                            <div id="z5-2" class="zone zoomTarget"></div>
+                                            <div id="z5-5" class="zone zoomTarget"></div>
+                                            <div id="z5-6" class="zone zoomTarget"></div>                                            
+                                    		<img src="img/IL_S_G08_U02_L01_03_06_01.svg" style="height:500px;margin-left:170px;"/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="nav_con">
+                                    <div class="zoomButton" data-type="prev" data-root=".demo">&lt;</div>
+                                    <div class="zoomButton" data-type="next" data-root=".demo">&gt;</div>
+                                    <p>navega por el mapa utilizando las flechas de navegación, o haz clic directamente sobre las zonas que desees detallar. Haz clic sobre las zonas en blanco para regresar.</p>
+                                </div>
+                            </sg-item-page>                        
+                        <sg-item-page sg-key="2" sg-group="1">
+                        <div class="grid grid-pad">
+                        	<div class="col-1-1"><p class="texto1">Es la capa de electrones que se encuentran en el último nivel de los átomos.</p></div>
+                            <div class="col-1-1"><p class="texto1">Ejemplo: El oxígeno (O), tiene un número atómico  Z = 8 (8 Electrones)</p></div>
+                            <div class="col-1-1"><p class="texto1">Su configuración electrónica es: 1s<sup>2</sup>2s<sup>2</sup>2p<sup>4</sup></p></div>
+                            <div class="col-1-1"><p class="texto1">Para hallar su valencia decimos que la suma de los dos últimos exponentes es <span class="crojo">6</span> en el nivel <span class="cverde">2</span>, por tanto el número de electrones de valencia es 6.</p></div>
+                            <div class="grid grid-box azul">
+                            	<div class="textoSp sg-text-shadow2">1s<sup>2</sup> <span class="cverde">2</span>s<sup class="crojo">2</sup> <span class="cverdr">2</span>p<sup class="crojo">4</sup></div>
+                            </div>
+                        </div>
+                        </sg-item-page>	
+                        <sg-item-page sg-key="3" sg-group="1">
+                        	?????????????????????????????
+                        </sg-item-page>                
+                    </div>
+                    </div>
+                    <sg-btn-page sg-key="next" sg-group="1" class="ggd_Flecha_Avanzar"></sg-btn-page>
+                    <sg-btn-page sg-key="prev" sg-group="1" class="ggd_Flecha_volver"></sg-btn-page>
+                    </div>
+			</div>
+			<!-- FIN CONTENIDO (CONTENT) -->
+		</div>
+	</div>
+</body>
+</html>

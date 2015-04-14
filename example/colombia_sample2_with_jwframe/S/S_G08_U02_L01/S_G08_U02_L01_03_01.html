@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>Actividad 1</title>
+<link rel="stylesheet" type="text/css" href="../../common/css/sg.css">
+<link rel="stylesheet" type="text/css" href="../../common/css/normalize.css">
+<link rel="stylesheet" type="text/css" href="../../css/GGD.css">
+<link rel="stylesheet" type="text/css" href="../../skins/S_GGD/S_GGD.css">
+<link rel="stylesheet" href="css/grid.css">
+<link href="css/S_G08_U02_L01_03_01.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="../../common/css/template/easytabs.css">
+<script type="text/javascript" src="../../common/lib/require/require.js"></script>
+<script type="text/javascript" src="../../common/js/main.js"></script>
+<script type="text/javascript" src="../../common/js/template/easytabs.js"></script>
+<!--<script type="text/javascript" src="js/S_G08_U02_L01_03_01.js"></script>-->
+<style>
+.alpha-transition{
+	webkit-transition:opacity ease 1s;
+	transition:opacity ease 1s;
+}
+</style>
+<script>
+function init(){
+	//for preload
+	sg.sound("success", false);
+	sg.sound("error", false);
+	
+	////////////////////drag setting////////////////////
+	$(".draggable").each(function(i, e) {
+        var key = $(this).attr("data-dragkey");
+		sg.setDraggable("[data-dragkey="+key+"]", {
+			dropSelector: "[data-dropkey="+key+"]",
+			revert: true,
+			success:function(){
+				sg.sound("success");
+			},
+			fail:function(){
+				sg.sound("error");
+			}
+		});
+    }).on("dragstart", function(e){
+		$('.droppable').removeClass("alpha-transition").css({'opacity':'0.8'});
+	}).on("dragstop", function(e){
+		$('.droppable').addClass("alpha-transition").css({'opacity':'1'});
+	});
+	////////////////////////////////////////////////////
+			
+		
+		
+	$('.ggd_Flecha_Avanzar,.ggd_Flecha_volver').click(function(e) {
+		if( $("#t3").css('display') == 'block'|| $("#t4").css('display') == 'block'){				
+			$('.ggd_title').html('La Configuración del modelo atómico moderno');
+		}
+		if($("#t5").css('display') == 'block'){
+			$('.ggd_title').html('Representación del átomo');
+			}
+		else{
+			$('.ggd_title').html('Modelos atómicos');
+			}
+		if ( $('#page9').css('display') == 'block' || $('#page10').css('display') == 'block' || $('#page11').css('display') == 'block'){
+				$('.ggd_title').html('La Configuración del modelo atómico moderno');
+			}
+		if ( $('#page12').css('display') == 'block' || $('#page13').css('display') == 'block' || $('#page14').css('display') == 'block' || $('#page15').css('display') == 'block'){
+				$('.ggd_title').html('La Configuración Electrónica');
+			}
+		if ( $('#page16').css('display') == 'block'){
+				$('.ggd_title').html('La Tabla Periódica');
+			}
+		if ( $('#page17').css('display') == 'block' || $('#page18').css('display') == 'block' || $('#page19').css('display') == 'block'){
+				$('.ggd_title').html('Distribución de los orbitales en la  Tabla Periódica');
+			}
+			if ( $('#page20').css('display')){
+				$('.ggd_title').html('Representaciones Electrónicas');
+			}
+	});		
+}
+
+/////////////////////////drop check//////////////////////////////
+function validate(){
+	var chk = true;
+	$(".draggable").each(function(i, drag){
+		if( !chk ) return;
+		chk = sg.dropCheck( $(drag).data("hit"), drag );
+	});
+	
+	if( chk ){
+		sg.sound('success');
+		$("div[data-sg-key='9']").trigger("click");
+	}else{
+		sg.sound('error');
+		$("div[data-sg-key='10']").trigger("click");
+	}
+}
+/////////////////////////////////////////////////////////////////
+
+
+////////////////////////set Video//////////////////////////
+function setVideoPage10(){
+	sg.jwframe({
+		//---------------required---------------//
+		elementOrID: "videoContainer",
+		src: "https://www.youtube.com/embed/kvSrhnjrLxU",
+		//---------------optional---------------//
+		width: 854,
+		height: 480,
+		localSources: [{
+			file: "video/VS_S_G08_U02_L01_03_02.mp4",
+			//optional
+			image: "img/test_poster.jpg"
+		}],
+		//default false
+		scaleControl: true,
+		//default null
+		onDisabled: function(){
+			//or $("#videoContainer").empty();
+			$(this).empty();
+		}
+		//--------------------------------------//
+	});
+}
+
+function setVideoPage15(){
+	sg.jwframe({
+		//---------------required---------------//
+		elementOrID: "videoContainer2",
+		src: "https://www.youtube.com/embed/Foy76ebhMAM",
+		//---------------optional---------------//
+		height: 465,
+		ratio: "16:9",
+		localSources: [{
+			file: "video/AN_S_G08_U02_L01_03_04.mp4",
+			//optional
+			image: "img/test_poster.jpg"
+		}],
+		//default false
+		scaleControl: true,
+		//default null
+		onDisabled: function(){
+			//or $("#videoContainer2").empty();
+			$(this).empty();
+		}
+		//--------------------------------------//
+	});	
+}
+
+
+
+function verificarBt1(){
+	$('#txt1').html("<p>Representa: el nivel de energía<br/>Para n: números enteros 1,2,3.</p>")
+	$('#txt2').html("<p>Representa: forma de los orbitales los valores de l dependen del valor del número cuáuntico principal.<br/>Para l: números enteros 0 hasta (n-1).</p>")
+	$('#txt3').html("<p>Representa: la distribución del orbital en el espacio<br/>Para m: todos los números enteros entre +l y l incluido el 0.</p>")
+	$('#txt4').html("<p>Representa: giro del electrón entorno a su propio eje.<br/>Para s: sólo números fraccionarios -1/2 y +1/2.</p>")
+}
+</script>
+</head>
+<body>
+	<div id="stage" sg-scalemode="showall">
+		<div id="content" class="ggd_contenedorGeneral">
+			<header class="ggd_header_S">
+				<div class="ggd_icon ggd_icon_S_contenido"></div> 
+				<div class="ggd_title">Modelos atómicos</div>
+			</header> 
+			<div class="ggd_contenido ggd_contenido_S">
+				<div class="ggd_nombre_S">Contenido</div>                
+ 				<!-- INCIO CONTENIDO (CONTENT) -->
+				<div class="ggd_contenedorObjetivos">
+                	<div class="ggd_text_exp">Haz <span class="icon click">clic</span> para ver la información</div>
+                    <div class="ggd_text_act">Actividad 1</div>
+					<div id="contenedor">
+                    	<div class="grid_container">
+                        	<sg-item-page sg-key="1" sg-group="1">
+                            <div class="grid grid-pad">
+                            	<div class="col-1-1"><p class="texto1">Observa con atención  la información del estudio de los modelos atómicos a través de la historia. Haz clic en cada cuadro para acceder a la información correspondiente:</p></div>
+                                <div class="grid grid-box verde">
+                                	<div style="margin-left: 120px;"><div class="col-1-1">
+                                        <sg-btn-popup sg-key="1" sg-sound="success-low"><div class="btn"><p class="ttl cblanco sg-text-shadow">Demócrito</p></div></sg-btn-popup>
+                                        <sg-btn-popup sg-key="2" sg-sound="success-low"><div class="btn"><p class="ttl cblanco sg-text-shadow">Dalton</p></div></sg-btn-popup>
+                                        <sg-btn-popup sg-key="3" sg-sound="success-low"><div class="btn"><p class="ttl cblanco sg-text-shadow">Thomson</p></div></sg-btn-popup>
+                                        <sg-btn-popup sg-key="4" sg-sound="success-low"><div class="btn"><p class="ttl cblanco sg-text-shadow">Rutherford</p></div></sg-btn-popup>
+                                    </div>
+                                    <div class="col-1-1" style="margin-top: -50px;margin-left: 114px">
+                                        <sg-btn-popup sg-key="5" sg-sound="success-low"><div class="btn"><p class="ttl cblanco sg-text-shadow">Bohr</p></div></sg-btn-popup>
+                                        <sg-btn-popup sg-key="6" sg-sound="success-low"><div class="btn"><p class="ttl cblanco sg-text-shadow">Lewis</p></div></sg-btn-popup>
+                                        <sg-btn-popup sg-key="7" sg-sound="success-low"><div class="btn"><p class="ttl cblanco sg-text-shadow">Sommerfeld</p></div></sg-btn-popup>
+                                        <sg-btn-popup sg-key="8" sg-sound="success-low"><div class="btn"><p class="ttl cblanco sg-text-shadow">Schrödinger</p></div></sg-btn-popup>
+                                    </div></div>
+                                </div>
+                            </div>
+                            </sg-item-page>
+                            <sg-item-page sg-key="2" sg-group="1">
+                            	<div class="grid-pad grid">
+                                	<div class="col-1-1"><p class="texto1">Pon a prueba tus conocimientos. Arrastra la figura del modelo atómico al personaje que corresponde.</p></div>
+                                    <div class="grid grid-box verde">
+                                    	<div class="col-1-1">
+                                            <div class="col-1-5"><img src="img/IL_S_G08_U02_L01_03_01_13.png" class="droppable" data-dropkey="1"/></div>
+                                            <div class="col-1-5"><img src="img/IL_S_G08_U02_L01_03_01_09.png" class="droppable" data-dropkey="2"/></div>
+                                            <div class="col-1-5"><img src="img/IL_S_G08_U02_L01_03_01_10.png" class="droppable" data-dropkey="3"/></div>
+                                            <div class="col-1-5"><img src="img/IL_S_G08_U02_L01_03_01_12.png" class="droppable" data-dropkey="4"/></div>
+                                            <div class="col-1-5"><img src="img/IL_S_G08_U02_L01_03_01_11.png" class="droppable" data-dropkey="5"/></div>
+                                        </div>
+                                        <div class="col-1-1 dragcont" style="margin-top:30px;">
+                                        	<div class="col-1-5 sg-text-center"><div class="contenido rojo texto1 cblanco draggable" data-dragkey="4">Rutherford</div></div>
+                                            <div class="col-1-5 sg-text-center"><div class="contenido naranja texto1 cblanco draggable" data-dragkey="2">Dalton</div></div>
+                                            <div class="col-1-5 sg-text-center"><div class="contenido azul texto1 cblanco draggable" data-dragkey="3">Thomson</div></div>
+                                            <div class="col-1-5 sg-text-center"><div class="contenido gris texto1 cblanco draggable" data-dragkey="5">Bohr</div></div>
+                                            <div class="col-1-5 sg-text-center"><div class="contenido violeta texto1 cblanco draggable" data-dragkey="1">Schrödinger</div></div>
+                                        </div>
+                                        <div class="col-1-1" style="margin-top:32px">
+                                              <div class="col-1-2 sg-text-center"><button class="rojo" sg-click="sg.resetDraggable('.draggable', true);">Reiniciar</button></div>
+                                              <div class="col-1-2 sg-text-center"><button class="naranja" sg-click="validate();">Validar</button></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </sg-item-page>
+                            <sg-item-page sg-key="3" sg-group="1" id="t3">
+                            	<div class="grid grid-pad">
+                                	<div class="col-1-1"><p class="texto1">Observa La Configuración del modelo atómico moderno. Da clic en cada botón para acceder a la información:</p></div>
+                                    <div class="grid grid-box verde">
+                                    	<div class="grid grid-pad">
+                                        	<div class="col-1-2"><img src="img/IL_S_G08_U02_L01_03_01_14.png" style="width:90%" class="sg-center"/></div>
+                                            <div class="col-1-2">
+                                            	<p class="texto1 cblanco">En el átomo se distinguen dos partes:</p>
+                                                <div class="col-1-1 sg-text-center" style="padding-top:50px"><sg-btn-popup sg-key="11" sg-sound="success-low"><button class="azul">Longitud</button></sg-btn-popup></div>
+                                                <div class="col-1-1 sg-text-center" style="padding-top:50px"><sg-btn-popup sg-key="12" sg-sound="success-low"><button class="naranja">Periodo</button></sg-btn-popup></div>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>                                
+                            </sg-item-page>
+                            <sg-item-page sg-key="4" sg-group="1" id="t4">
+                            	<div class="grid grid-pad">
+                                	<div class="col-1-1">
+                                    	<p class="texto1">Ahora que ya viste la información sobre configuración de una átomo,
+¿sabes cómo se encuentran distribuidos los electrones dentro de un átomo?</p>
+										<p class="texto1">Soluciona en tu material.</p>
+                                    </div>
+                                    <div class="grid grid-box verde">
+                                    	<div class="col-1-1"><textarea placeholder="Escribe aquí tu respuesta" style="height: 251px;"></textarea></div>
+                                        <div class="col-1-1 sg-text-center" style="padding:20px 0"><sg-btn-popup sg-key="13" sg-sound="success-low"><button class="azul">Solución</button></sg-btn-popup></div>
+                                    </div>
+                                </div>
+                            </sg-item-page>
+                            <sg-item-page sg-key="5" sg-group="1" id="t5">
+                            	<div class="grid grid-pad">
+                                	<p class="texto1">Ahora te invitamos a realizar esta actividad. Necesitaras de los siguientes elementos:</p>
+                                    <div class="grid grid-box verde">
+                                    	<div class="grid">
+                                        	<div class="col-1-3"><img src="img/IL_S_G08_U02_L01_03_01_17.png" class="imgfix sg-center"/></div>
+                                            <div class="col-1-3"><img src="img/IL_S_G08_U02_L01_03_01_18.png" class="imgfix sg-center"/></div>
+                                            <div class="col-1-3"><img src="img/IL_S_G08_U02_L01_03_01_19.png" class="imgfix sg-center"/></div>
+                                        </div>
+                                        <div class="grid">
+                                        	<div class="col-1-3 sg-text-center"><p class="texto2 cblanco">Cartón</p></div>
+                                            <div class="col-1-3 sg-text-center"><p class="texto2 cblanco">30 semillas de frijol</p></div>
+                                            <div class="col-1-3 sg-text-center"><p class="texto2 cblanco">30 semillas de maíz</p></div>
+                                        </div>
+                                        <div class="grid">
+                                        	<div class="col-1-3"><img src="img/IL_S_G08_U02_L01_03_01_20.png" class="imgfix sg-center"/></div>
+                                            <div class="col-1-3"><img src="img/IL_S_G08_U02_L01_03_01_21.png" class="imgfix sg-center"/></div>
+                                            <div class="col-1-3"><img src="img/IL_S_G08_U02_L01_03_01_22.png" class="imgfix sg-center"/></div>
+                                        </div>
+                                        <div class="grid">
+                                        	<div class="col-1-3 sg-text-center"><p class="texto2 cblanco">30 semillas de arveja</p></div>
+                                            <div class="col-1-3 sg-text-center"><p class="texto2 cblanco">Tijeras</p></div>
+                                            <div class="col-1-3 sg-text-center"><p class="texto2 cblanco">Pegante</p></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </sg-item-page>
+                            <sg-item-page sg-key="6" sg-group="1">
+                            	<div class="grid grid-pad">
+                                	<div class="col-1-1"><p class="texto1">Procedimiento:</p></div>
+                                    <div class="grid grid-box verde">
+                                    	<div class="col-1-1"><p class="texto1 cblanco">Toma el cartón, traza y recorta cinco círculos.</p></div>
+                                        <div class="col-1-1" style="margin-top: 55px;">
+                                        	<img src="img/IL_S_G08_U02_L01_03_01_24.png"/>
+                                        </div>
+                                        <img src="img/IL_S_G08_U02_L01_03_01_23.png" class="sg-absolute" style="top: 0;right: 10px;height: 260px;"/>
+                                    </div>
+                                </div>
+                            </sg-item-page>
+                            <sg-item-page sg-key="7" sg-group="1">
+                            	<div class="grid grid-pad">
+                                	<div class="col-1-1"><p class="texto1">Procedimiento:</p></div>
+                                    <div class="grid grid-box verde">
+                                    	<div class="grid">
+                                        	<div class="col-1-2">
+                                            	<p class="texto1 cblanco fixp"><strong>3.</strong> Une todos los círculos teniendo como referencia el primero que recortaste. Al final debes tener una figura, así:</p>
+                                            </div>                                           
+                                            <div class="col-1-2">
+                                            	<p class="texto1 cblanco fixp"><strong>4.</strong> Toma las semillas de fríjol, maíz y arveja. Diferéncialos con los siguientes nombres (no importa el orden)</p>
+                                            </div>
+                                        </div>
+                                        <div class="grid">
+                                        	<div class="col-1-1">
+                                            	<div class="col-6-12">
+                                                	<img src="img/IL_S_G08_U02_L01_03_01_25.png" style="width:65%;" class="sg-center"/>
+                                                </div>
+                                                <div class="col-2-12 sg-text-center">
+                                                	<p class="texto2 cblanco">Protones</p>
+                                                    <img src="img/IL_S_G08_U02_L01_03_01_25_01.png"/>
+                                                </div>
+                                                <div class="col-2-12 sg-text-center">
+                                                	<p class="texto2 cblanco">Protones</p>
+                                                	<img src="img/IL_S_G08_U02_L01_03_01_25_02.png"/>
+                                               	</div>
+                                                <div class="col-2-12 sg-text-center">
+                                                	<p class="texto2 cblanco">Protones</p>
+                                                	<img src="img/IL_S_G08_U02_L01_03_01_25_03.png"/>
+                                               </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>    
+                            </sg-item-page>
+                            <sg-item-page sg-key="8" sg-group="1">
+                            	<div class="grid grid-pad">
+                                	<div class="col-1-1"><p class="texto1">Procedimiento:</p></div>
+                                    <div class="grid grid-box verde">
+                                    	<div class="grid">
+                                        	<div class="col-1-1"><p class="texto1 cblanco"><strong>5.</strong>Según tus conocimientos, ¿dónde ubicarías cada semilla?</p></div>
+                                            <div class="col-1-1">
+                                            	<div class="col-1-2">
+                                                	<img src="img/IL_S_G08_U02_L01_03_01_25_04.png" class="sg-center" style="width:61%;"/>
+                                                    <div class="drop" id="d1"></div>
+                                                    <div class="drop" id="d2"></div>
+                                                    <div class="drop" id="d3"></div>
+                                                </div>
+                                                <div class="col-1-2">
+                                                	<div class="col-1-1 sg-text-center">
+                                                    	<div class="contenido azul texto1 cblanco cfix">
+                                                        	<img src="img/act1drag1-01.png" class="drag" sg-draggable sg-revert="true" sg-drop-selector="#d1" sg-drop-fail="sg.sound('error');" sg-drop-success="sg.sound('success-low');"/>Neutrones
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-1-1 sg-text-center">
+                                                    	<div class="contenido azul texto1 cblanco cfix">
+                                                        	<img src="img/act1drag2-01-01.png" class="drag" sg-draggable sg-revert="true" sg-drop-selector="#d3" sg-drop-fail="sg.sound('error');" sg-drop-success="sg.sound('success-low');"/>Electrones
+                                                        </div>
+                                                  </div>
+                                                    <div class="col-1-1 sg-text-center">
+                                                    	<div class="contenido azul texto1 cblanco cfix">
+                                                        	<img src="img/act1drag3-01-01-01.png" class="drag" sg-draggable sg-revert="true" sg-drop-selector="#d2" sg-drop-fail="sg.sound('error');" sg-drop-success="sg.sound('success-low');"/>Protones
+                                                        </div>
+                                                  </div>
+                                                </div>
+                                            </div>
+                                            <!--<div class="col-1-1 sg-text-center"><button class="rojo">Solución</button></div>-->
+                                        </div>
+                                    </div>
+                                </div>
+                            </sg-item-page>
+                            <sg-item-page sg-key="9" sg-group="1" id="page9">
+                            	<div class="grid grid-pad">
+                                	<div class="col-1-1"><p class="texto1">Da clic en cada una de las flechas para ver la información.</p></div>                                    
+                                </div>
+                                <div class="grid grid-box verde">
+                                	<div class="grid">
+                                    	<div class="col-1-1">
+                                        	<div class="contenido naranja sg-text-center sg-box-shadow flecha" sg-one="sg.fadeIn('#panel2');sg.sound('success-low');">
+                                            	<div class="texto1 cblanco">En cada <sg-btn-popup sg-key="14" sg-sound="success-low" class="link">nivel</sg-btn-popup> de energía o capas, se pueden situar los electrones; desde el nivel más interno al más externo.</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-1-1">
+                                        	<div id="panel2" class="contenido naranja sg-text-center sg-box-shadow flecha" sg-init="sg.hide(this);" sg-one="sg.fadeIn('#panel3');sg.sound('success-low');">
+                                            	<div class="texto1 cblanco">Cada nivel tiene los electrones repartidos en diversos <sg-btn-popup sg-key="15" sg-sound="success-low" class="link">subniveles</sg-btn-popup>, estos pueden ser de cuatro tipos: s, p, d y f.</div>
+                                            </div>
+                                        </div>
+                                        <div class="col-1-1">
+                                        	<div id="panel3" class="contenido naranja sg-text-center sg-box-shadow" sg-init="sg.hide(this);">
+                                            	<div class="texto1 cblanco">En cada subnivel hay un número determinado de <sg-btn-popup sg-key="16" sg-sound="success-low" class="link">orbitales</sg-btn-popup> para los cuales contienen como máximo 2 electrones cada uno.</div>
+                                           </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </sg-item-page>
+                            <sg-item-page sg-key="10" sg-group="1" id="page10" sg-call="setVideoPage10()">
+                            	<div class="grid grid-pad">
+                                	<div class="col-1-1"><p class="texto1">Haz clic para observar el video, Tabla periódica y números cuánticos.</p></div>
+                                     <div class="col-1-1">
+                        	<div id="videoContainer" class="sg-center"></div>
+                                <!--<video controls id="v1">
+                                    <source src="video/VS_S_G08_U02_L01_03_02.mp4" type="video/mp4">
+                                </video>-->
+                        	</div>
+                                </div>
+                            </sg-item-page>
+                            <sg-item-page sg-key="11" sg-group="1" id="page11">
+                            	<div class="grid grid-pad">
+                                	<div class="col-1-1">
+                                    	<p class="texto1">De acuerdo con el video de tabla periódica y números cuánticos.  Completa con tus ideas el cuadro de los número cuánticos en tu material, y compara tus respuestas:</p>
+                                    </div>
+                                   <button class="rojo" id="boton1" sg-click="sg.sound('success-low');verificarBt1();">Solución</button>
+                                   <div class="col-1-1">
+                                   		<table class="texto2">
+                                        	<colgroup>
+                                            	<col width="40%">
+                                                <col width="60%">
+                                            </colgroup>
+                                        	<thead>
+                                            	<th>Números cuánticos</th>
+                                                <th>Representa y valores</th>
+                                            </thead>
+                                            <tbody>
+                                            	<tr>
+                                                	<td>n: número cuántico principal</td>
+                                                    <td id="txt1"></td>
+                                                </tr>
+                                                <tr>
+                                                	<td>l: número cuántico del momento angular o secundario</td>
+                                                    <td id="txt2"></td>
+                                                </tr>
+                                                <tr>
+                                                	<td>m: número cuántico magnético</td>
+                                                    <td id="txt3"></td>
+                                                </tr>
+                                                <tr>
+                                                	<td>s: número cuántico del espín electrónico.</td>
+                                                    <td id="txt4"></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                   </div>
+                                </div>
+                            </sg-item-page>
+                            <sg-item-page sg-key="12" sg-group="1" id="page12">
+                            	<div class="grid grid-pad">
+                                	<div class="col-1-1"><p class="texto1">Haz clic en cada icono para observar la información correspondiente:</p></div>
+                                    <div class="grid grid-box azul" style=" height:490px;">
+                                    	<img src="img/act1_1s1.png" class="sg-absolute" style="left:460px;top:50px;"/>
+                                        <img src="img/expact1-01.png" class="sg-absolute" style="right:40px;top:30px;" sg-init="sg.hide(this);" id="img1"/>
+                                        <img src="img/expact1-02.png" class="sg-absolute" style="bottom:20px;right:70px;" sg-init="sg.hide(this);" id="img2"/>
+                                        <img src="img/expact1-03.png" class="sg-absolute" style="top:150px;left:160px;" sg-init="sg.hide(this);" id="img3"/>
+                                        <div class="clickarea" id="uno" sg-click="sg.fadeIn('#img3');sg.sound('success-low');"></div>
+                                        <div class="clickarea" id="dos" sg-click="sg.fadeIn('#img2');sg.sound('success-low');"></div>
+                                        <div class="clickarea" id="tres" sg-click="sg.fadeIn('#img1');sg.sound('success-low');"></div>
+                                    </div>
+                                </div>
+                            </sg-item-page>
+                            <sg-item-page sg-key="13" sg-group="1" id="page12">
+                            	<div class="grid grid-pad">
+                                	<div class="col-1-1"><p class="texto1">Haz clic en cada icono para observar la información correspondiente:</p></div>
+                                    <div class="grid grid-box azul" style=" height:490px;">
+                                    	<img src="img/act1_1s1_01.png" class="sg-absolute" style="top: 40px;left: 350px;"/>
+                                        <img src="img/expact1_01-01.png" id="cuatro" sg-init="sg.hide(this);"/>
+                                        <img src="img/expact1_01-02.png" id="cinco" sg-init="sg.hide(this);"/>
+                                        <div class="clickarea" id="cuatro1" sg-click="sg.fadeIn('#cuatro');sg.sound('success-low');"></div>
+                                        <div class="clickarea" id="cinco1" sg-click="sg.fadeIn('#cinco');sg.sound('success-low');"></div>
+                                    </div>
+                                </div>
+                            </sg-item-page>
+                            <sg-item-page sg-key="14" sg-group="1">
+                            	<div class="grid grid-pad">
+                                	<div class="col-1-1">
+                                    	<p class="texto1">Observa a continuación la representación de la configuración electrónica del oxígeno:</p>
+                                        <p class="texto1">Da clic en cada cuadro verde para observar como se ubican los electrones:</p>
+                                    </div>
+                                    <div class="grid grid-box azul" style="height:390px;" id="page14">
+                                    	<div class="box" id="box1" sg-one="sg.fadeIn('#ima1');sg.sound('success-low')"><img src="img/act1_1s1_03.png" sg-init="sg.hide(this);" id="ima1"/></div>
+                                        <div class="box" id="box2" sg-one="sg.fadeIn('#ima2');sg.sound('success-low')"><img src="img/act1_1s1_03.png" sg-init="sg.hide(this);" id="ima2"/></div>
+                                        <div class="box" id="box3" sg-one="sg.fadeIn('#ima3');sg.sound('success-low')"><img src="img/act1_1s1_03.png" sg-init="sg.hide(this);" id="ima3"/></div>
+                                        <div class="box" id="box4" sg-one="sg.fadeIn('#ima4');sg.sound('success-low')"><img src="img/act1_1s1_03.png" sg-init="sg.hide(this);" id="ima4"/></div>
+                                        <div class="box" id="box5"></div>
+                                        <img src="img/act1_1s1_02.png" class="sg-absolute" style="bottom:20px;left:230px;"/>
+                                    </div>
+                                </div>
+                            </sg-item-page>
+                            <sg-item-page sg-key="15" sg-group="1" id="page15" sg-call="setVideoPage15()">
+                            	<div class="grid grid-pad">
+                                	<div class="col-1-1"><p class="texto1">Haz clic para observar el video de configuración electrónica de los elementos químicos:</p></div>
+                                    <div class="col-1-1">
+                                    	<div id="videoContainer2" class="sg-center"></div>
+                                    </div>
+                                </div>
+                            </sg-item-page>
+                            <sg-item-page sg-key="16" sg-group="1" id="page16">
+                            	<div class="grid grid-pad">
+                                	<div class="col-1-1"><p class="texto1">La distribución electrónica de los orbitales tiene una relación directa en la tabla periódica de la siguiente forma.</p></div>
+                                    <div class="grid">
+                                    	<div class="col-8-12">
+                                        	<div class="zoomViewportx demo">
+                                            <div class="orbitbox zoomTargetx rojo" id="orbitbox1" sg-init="sg.hide(this);">1s 2s 3s 4s 5s 6s 7s</div>
+                                            <div class="orbitbox zoomTargetx verde" id="orbitbox2" sg-init="sg.hide(this);">1p 2p 3p 4p 5p 6p</div>
+                                            <div class="orbitbox zoomTargetx azul" id="orbitbox3" sg-init="sg.hide(this);">1d 2d 3d 4d</div>
+                                            <div class="orbitbox zoomTargetx naranja" id="orbitbox4" sg-init="sg.hide(this);">4f 5f</div>
+                                        	<img src="img/Tabla_elementos.svg"/>
+                                            </div>
+                                        </div>
+                                        <div class="col-4-12">
+                                        	<div class="col-1-1 sg-text-center grid-pad"><button class="rojo" sg-click="sg.fadeIn('#orbitbox1');sg.fadeOut('#orbitbox2,#orbitbox3,#orbitbox4');sg.sound('success-low');">Orbitales s</button></div>	
+                                            <div class="col-1-1 sg-text-center grid-pad"><button class="verde" sg-click="sg.fadeIn('#orbitbox2');sg.fadeOut('#orbitbox1,#orbitbox3,#orbitbox4');sg.sound('success-low');">Orbitales p</button></div>	
+                                            <div class="col-1-1 sg-text-center grid-pad"><button class="azul" sg-click="sg.fadeIn('#orbitbox3');sg.fadeOut('#orbitbox2,#orbitbox1,#orbitbox4');sg.sound('success-low');">Orbitales d</button></div>	
+                                            <div class="col-1-1 sg-text-center grid-pad"><button class="naranja" sg-click= "sg.fadeIn('#orbitbox4');sg.fadeOut('#orbitbox2,#orbitbox3,#orbitbox1');sg.sound('success-low');">Orbitales f</button></div>	
+                                        </div>
+                                    </div>
+                                </div>
+                            </sg-item-page>
+                            <sg-item-page sg-key="17" sg-group="1" id="page17">
+                            	<div class="grid grid-pad">
+                                	<div class="col-1-1"><p class="texto1">Ahora vamos a tomar la  representación de átomo que realizamos: señala y nombra en el material del estudiante con diferentes colores a los niveles, subniveles y número máximo de electrones.</p></div>
+                                </div>
+                                <div class="grid grid-box azul">
+                                	<div class="col-1-3 sg-text-center">
+                                    	<div class="col-1-1">
+                                              <img src="img/IL_S_G08_U02_L01_03_01_25_04.png" style="width:80%;" id="ima0"/>
+                                              <img src="img/IL_S_G08_U02_L01_03_01_25_04_op1.png" style="width:80%;" id="ima1" sg-init="sg.hide(this);"/>  
+                                        </div>                                                                                  
+                                        <div class="col-1-1"><button class="verde" sg-one="sg.hide('#ima0');sg.show('#ima1,#txt1');" sg-sound="success-low">Niveles</button></div>
+                                    </div>
+                                    <div class="col-1-3 sg-text-center">
+                                    	<div class="col-1-1">
+                                        	<img src="img/IL_S_G08_U02_L01_03_01_25_04.png" style="width:80%;" id="ima01"/>
+                                            <img src="img/IL_S_G08_U02_L01_03_01_25_04_op2.png" id="ima2" sg-init="sg.hide(this);" style="width:80%;"/>
+                                        </div>
+                                        <div class="col-1-1"><button class="rojo" style="padding: 7px 10px;" sg-one="sg.hide('#ima01');sg.show('#ima2,#fakeId');sg.sound('success-low');">Máximo de electrones</button></div>
+                                    </div>
+                                    <div class="col-1-3 sg-text-center">
+                                    	<div class="col-1-1">
+                                        	<img src="img/IL_S_G08_U02_L01_03_01_25_04.png" style="width:80%;" id="ima03"/>
+                                            <img src="img/IL_S_G08_U02_L01_03_01_25_04_op3.png" style="width:80%;" sg-init="sg.hide(this);" id="ima3"/>
+                                        </div>
+                                        <div class="col-1-1"><button class="naranja" sg-one="sg.sound('success-low');sg.hide('#ima03');sg.show('#ima3,#fakeID');">Subniveles</button></div>
+                                    </div>
+                                </div>
+                            </sg-item-page>
+                            <sg-item-page sg-key="18" sg-group="1" id="page18">
+                            	<div class="grid grid-pad">
+                                	<div class="col-1-1"><p class="texto1">Utilizando la representación que realizaron del átomo, ahora describamos la distribución electrónica del sodio (Na).</p></div>
+                                    <div class="grid grid-box azul">
+                                    	<div class="col-1-3">
+                                        	<div class="col-1-1 sg-text-center">
+                                            	<img src="img/IL_S_G08_U02_L01_03_01_25_vertical.png" style="width:86%;"/>
+                                            </div>
+                                            <div class="col-1-1 sg-text-center"><sg-btn-popup sg-key="17" sg-sound="success-low"><button class="rojo">Solución</button></sg-btn-popup></div>
+                                        </div>
+                                        <div class="col-2-3">
+                                        	<div class="col-1-1"><p class="texto1 cblanco">Na (Sodio) Número atómico:</p>
+                                            <textarea placeholder="Escribe aquí tu respuesta"></textarea></div>
+                                            <div class="col-1-1"><p class="texto1 cblanco">Configuración electrónica y diagrama de los orbitales:</p>
+                                            <textarea placeholder="Escribe aquí tu respuesta"></textarea></div>
+                                        </div>                                        
+                                    </div>
+                                </div>
+                            </sg-item-page>
+                            <sg-item-page sg-key="19" sg-group="1" id="page19">
+                            	<div class="grid grid-pad">
+                                	<div class="col-1-1"><p class="texto1">Reúnete con dos compañeros, y tomando la representación que realizaron del átomo, describe la distribución electrónica de los siguientes elementos utilizando las semillas.</p></div>
+                                </div>
+                                <div class="grid grid-box azul">
+                                	<div class="col-1-1"><p class="texto1 cblanco">Haz clic en cada elemento para ver las respuestas correctas:</p></div>
+                                    <div class="col-1-1" style="margin: 70px 0;">
+                                    	<div class="col-1-5 sg-text-center"><sg-btn-popup sg-key="18" sg-sound="success-low"><button class="rojo btnfix">Al</button></sg-btn-popup></div>
+                                        <div class="col-1-5 sg-text-center"><sg-btn-popup sg-key="19" sg-sound="success-low"><button class="verde btnfix">Br</button></sg-btn-popup></div>
+                                        <div class="col-1-5 sg-text-center"><sg-btn-popup sg-key="20" sg-sound="success-low"><button class="btnfix" style="background-color:#5696d2;">Sr</button></sg-btn-popup></div>
+                                        <div class="col-1-5 sg-text-center"><sg-btn-popup sg-key="21" sg-sound="success-low"><button class="naranja btnfix">Cr</button></sg-btn-popup></div>
+                                        <div class="col-1-5 sg-text-center"><sg-btn-popup sg-key="22" sg-sound="success-low"><button class="violeta btnfix">Ce</button></sg-btn-popup></div>
+                                    </div>
+                                </div>
+                            </sg-item-page>                            
+                        </div>
+                    </div>
+                    <sg-btn-page sg-key="next" sg-group="1" class="ggd_Flecha_Avanzar"></sg-btn-page>
+                    <sg-btn-page sg-key="prev" sg-group="1" class="ggd_Flecha_volver"></sg-btn-page>
+                    </div>
+			</div>
+			<!-- FIN CONTENIDO (CONTENT) -->
+		</div>
+	</div>
+    <sg-item-popup sg-key="1">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Demócrito</h1>
+        <div class="content">
+        	<div class="grid grid-pad">
+            	<div class="col-1-2 table"><p class="texto2 middle txtp1">La materia se encuentra conformada por partículas idénticas e indivisibles, que no pueden ser divididas ni destruidas.</p></div>
+                <div class="col-1-2">
+               	  <div class="col-1-1">
+                    <div class="stack">
+                    	<img src="img/IMG_S_G08_U02_L01_03_01_01.jpg"/>
+                        <p>Picasa Review Bot. (2007, junio 10). Demócrito. [imagen]. Obtenido de: http://upload.wikimedia.org/wikipedia/commons/f/f1/Dem%C3%B3crito,_by_Diego_Vel%C3%A1zquez.jpg</p>
+                    </div>
+                  </div>
+                    <div class="col-1-1">
+                    <img src="img/IL_S_G08_U02_L01_03_01_01.jpg"/>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </sg-item-popup>
+    <sg-item-popup sg-key="2">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Dalton</h1>
+        <div class="content">
+        	<div class="grid grid-pad">
+            	<div class="col-1-1"><p class="texto2">En el S. XIX, el gran químico inglés, John Dalton, se basó en la hipótesis de Demócrito y pudo así establecer las bases de la teoría atómica, con el primer modelo atómico, postulando <strong>la Ley de las proporciones constantes</strong> para las reacciones químicas.</p></div>
+                <div class="col-1-1">
+                	<div class="col-1-3"><img src="img/IL_S_G08_U02_L01_03_01_02.png" class="imgp1 sg-center"/></div>
+                    <div class="col-2-3">
+                    	<div class="stack">
+                    		<img src="img/IMG_S_G08_U02_L01_03_01_02.jpg"/>
+                            <p>Materialscientist.(1834, junio 1). John Dalton by Charles Turner.. [Imagen]. Obtenido de: http://upload.wikimedia.org/wikipedia/commons/d/d4/John_Dalton_by_Charles_Turner.jpg</p>
+                        </div>
+                	</div>
+	            </div>
+    	    </div>
+        </div>
+    </sg-item-popup>
+    <sg-item-popup sg-key="3">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Thomson</h1>
+        <div class="content">
+        	<div class="grid grid-pad">
+            	<div class="col-1-1">
+                	<p class="texto2">Propuso la estructura atómica en 1904, además de realizar los postulados sobre la conformación y la idea del electrón.</p>
+                	<p class="texto2">El átomo está compuesto por partículas de carga negativa (electrones) en una estructura  positiva.</p>
+               </div>
+               <div class="col-1-1">
+               		<div class="stack">
+                    	<img src="img/IL_S_G08_U02_L01_03_01_03.jpg"/>
+                        <p>QWerk.(2007, octubre 25). English physicist J J Thomson. [Imagen]. Obtenido de: http://upload.wikimedia.org/wikipedia/commons/c/c1/J.J_Thomson.jpg</p>
+                    </div>
+               </div>
+            </div>
+        </div>
+    </sg-item-popup>
+    <sg-item-popup sg-key="4">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Rutherford</h1>
+        <div class="content">
+        	<div class="grid grid-pad">
+            	<div class="col-1-1"><p class="texto2">Propuso un modelo atómico, con el que indicó la existencia del núcleo atómico, en el que se reúne toda la carga positiva y casi toda la masa;  en 1908 merecedor del Premio Nobel de Química, por sus estudios sobre radiactividad.</p></div>
+                <div class="col-1-1">
+                	<div class="col-2-3">
+                    	<div class="stack">
+                        	<img src="img/IMG_S_G08_U02_L01_03_01_03.jpg"/>
+                            <p>Materialscientist.(2014, Octubre 14). Ernest Rutherford 1908.jpg. Obtenido de: http://upload.wikimedia.org/wikipedia/commons/d/de/Ernest_Rutherford_1908.jpg</p>
+                        </div>
+                    </div>
+                    <div class="col-1-3"><img src="img/IL_S_G08_U02_L01_03_01_04.png"/></div>
+                </div>
+            </div>
+        </div>
+    </sg-item-popup>
+    <sg-item-popup sg-key="5">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Bohr</h1>
+        <div class="content">
+        	<div class="grid grid-pad">
+            	<div class="col-1-2">
+                	<div class="col-1-2">
+                    	<div class="stack"> 
+                        	<img src="img/IMG_S_G08_U02_L01_03_01_04.jpg"/>
+                            <p>Materialscientist.(2011, Agosto 11). Niels Bohr Date Unverified LOC.jpg. Obtenido de: http://upload.wikimedia.org/wikipedia/commons/5/5e/Niels_Bohr_Date_Unverified_LOC.jpg</p>
+                        </div>
+                    </div>
+                    <div class="col-1-2"><img src="img/IL_S_G08_U02_L01_03_01_05.png"/></div>
+                </div>
+               	<div class="col-1-2">
+                	<p class="texto2">En 1913 Bohr explicó cómo los <strong>electrones</strong> pueden tener <strong>órbitas</strong> estables <strong>alrededor del núcleo</strong>, por esta razón los átomos presentan <strong>espectros de emisión</strong>. Sus ideas se relacionaron con el efecto fotoeléctrico, explicado por Albert Einstein en 1905.</p>
+                </div>
+            </div>
+        </div>
+    </sg-item-popup>
+    <sg-item-popup sg-key="6">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Lewis</h1>
+        <div class="content">
+        	<div class="grid grid-pad">
+            	<div class="col-1-1">
+                	<div class="col-1-3">
+                    	<div class="stack">
+                        	<img src="img/IMG_S_G08_U02_L01_03_01_05.jpg"/>
+                            <p>Gobonobo.(2012, Agosto 12). Gilbert N Lewis.jpg. Obtenido de: http://upload.wikimedia.org/wikipedia/en/2/21/Gilbert_N_Lewis.jpg</p>
+                      </div>
+                    </div>
+                    <div class="col-2-3 table">
+                    	<p class="texto2 middle txtp6">Propuso la teoría sobre los enlaces químicos, y la definición de ácido y base. En 1916 <strong>Lewis promulgó una teoría sobre cierto tipo de enlaces químicos denominados “enlaces covalentes”</strong>.</p>
+                    </div>
+                </div>
+                <div class="col-1-1"><img src="img/IL_S_G08_U02_L01_03_01_06.png"/></div>
+            </div>
+        </div>
+    </sg-item-popup>
+        <sg-item-popup sg-key="7">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Sommerfeld</h1>
+        <div class="content">
+        	<div class="grid">
+            	<div class="col-1-1">
+                	<p class="texto2">Mejoró el  modelo atómico de Bohr, introdujo algunas  modificaciones básicas: <strong>órbitas casi-elípticas para los electrones</strong>, a partir del <strong>segundo nivel energético existen dos o más subniveles</strong> en el mismo nivel y que <strong>el electrón es una corriente eléctrica minúscula</strong>.</p>
+                </div>
+                <div class="col-1-1">
+                	<div class="col-1-2">
+                    	<div class="stack">
+                        	<img src="img/IMG_S_G08_U02_L01_03_01_06.jpg"/>
+                            <p>VladiMens.(2012, Abril 11). Sommerfeld1897.gif. Obtenido de: http://upload.wikimedia.org/wikipedia/commons/5/5e/Niels_Bohr_Date_Unverified_LOC.jpg</p>
+                        </div>
+                    </div>
+                    <div class="col-1-2"><img src="img/IL_S_G08_U02_L01_03_01_07.png" class="imgp7 sg-center"/></div>
+                </div>
+            </div>
+        </div>
+    </sg-item-popup>
+    <sg-item-popup sg-key="8">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Schrödinger</h1>
+        <div class="content">
+        	<div class="grid">
+            	<div class="col-1-1">
+                	<p class="texto2">El modelo de Schrödinger integra el concepto de números cuánticos para describir al orbital.</p>
+                    <p class="texto2">Schrödinger indica mediante estas representaciones las características relacionadas a:</p>
+                </div>
+                <div class="col-1-1">
+                	<div class="col-1-2">
+                    	<ul class="texto2" type="disc">
+                        	<li>Nivel energético.</li>
+                            <li>Subnivel energético(posición).</li>
+                            <li>Spin.</li>
+                            <li>Momento magnético.</li>
+                        </ul>
+                    </div>
+                    <div class="col-1-2">
+                    	<div class="col-1-2">
+                        	<div class="stack">
+                            	<img src="img/IMG_S_G08_U02_L01_03_01_07.jpg"/>
+                                <p>Kuiper,P.(2010, September 10). Schrodinger.jpg. Obtenido de: http://upload.wikimedia.org/wikipedia/commons/1/1f/Schrodinger.jpg</p>
+                        	</div> 
+                        </div>
+                        <div class="col-1-2"><img src="img/IL_S_G08_U02_L01_03_01_08.png"/></div>                    	
+                    </div>
+                </div>
+            </div>
+        </div>
+    </sg-item-popup>    
+    <sg-item-popup sg-key="9" class="solution correcto">
+<sg-btn-popup-close>+</sg-btn-popup-close>
+<h1>Solución</h1>
+<div class="content">        
+<p>Correcto</p>
+<img src="../../skins/S_GGD/img/correcto-01.jpg" />
+</div>
+</sg-item-popup>
+<sg-item-popup sg-key="10" class="solution incorrecto">
+<sg-btn-popup-close>+</sg-btn-popup-close>
+<h1>Solución</h1>
+<div class="content">        
+<p>Incorrecto</p>
+<img src="../../skins/S_GGD/img/incorrecto-01.jpg" />
+</div>
+</sg-item-popup>
+<sg-btn-popup sg-key="9"></sg-btn-popup>
+<sg-btn-popup sg-key="10"></sg-btn-popup>
+<sg-item-popup sg-key="11">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Longitud</h1>
+        <div class="content">
+        	<div class="grid grid-pad">
+            	<div class="col-8-12">
+                	<p class="texto2">En el <strong>núcleo</strong> podemos encontrar los <strong>protones</strong> con carga positiva, y las partículas sin carga  llamadas <strong>neutrones</strong>.</p>
+                    <p class="texto2">El átomo de un elemento químico tiene el mismo número de protones y electrones. A este número se le conoce como <strong>número atómico</strong> y se representa <strong>con la letra Z</strong>.
+<p>
+                </div>
+                <div class="col-4-12"><img src="img/IL_S_G08_U02_L01_03_01_15.png"/></div>
+            </div>
+        </div>
+    </sg-item-popup>
+    <sg-item-popup sg-key="12">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Periodo</h1>
+        <div class="content">
+        	<div class="grid grid-pad">
+            	<div class="col-1-1">
+                	<p class="texto2">En la <strong>corteza</strong> del átomo se encuentran los <strong>electrones</strong>, con carga negativa.</p>                    
+                </div>
+                <div class="col-1-1"><img src="img/IL_S_G08_U02_L01_03_01_16.png"/></div>
+            </div>
+        </div>
+    </sg-item-popup>
+    <sg-item-popup sg-key="13">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Solución</h1>
+        <div class="content">
+        	<div class="grid grid-pad">
+            	<div class="col-1-1">
+                	<p class="texto2">La distribución electrónica de un átomo es el modelo que representa  como están distribuidos los electrones alrededor del núcleo en un átomo. Es decir, cómo se reparten esos electrones entre los distintos niveles y orbitales.</p>                    
+                </div>
+            </div>
+        </div>
+    </sg-item-popup>
+    <sg-item-popup sg-key="14">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Nivel</h1>
+        <div class="content">
+        	<div class="grid grid-pad">
+            	<div class="col-1-2">
+                	<img src="img/IL_S_G08_U02_L01_03_01_30.png"/>                   
+                </div>
+                <div class="col-1-2">
+                	<p class="texto2">Hace referencia al número cuántico principal (n = 1,2,3…7 ó con letras k,l,m,n,o,p,q), se determina que las capas energéticas van de las más interna con poca energía; hasta la más externa con mayor energía</p>        
+                </div>
+            </div>
+        </div>
+    </sg-item-popup>
+    <sg-item-popup sg-key="15">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Subniveles</h1>
+        <div class="content">
+        	<div class="grid grid-pad">
+            	<div class="col-1-2">
+                	<img src="img/IL_S_G08_U02_L01_03_01_31.png"/>                   
+                </div>
+                <div class="col-1-2">
+                	<p class="texto2">Los subniveles hacen referencia al número cuántico secundario; el cual describe cuatro tipos de estructuras (orbitales) dimensionales en las que se pueden encontrar los electrones de acuerdo al nivel de energía.</p>        
+                </div>
+            </div>
+        </div>
+    </sg-item-popup>
+        <sg-item-popup sg-key="16">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Subniveles</h1>
+        <div class="content">
+        	<div class="grid grid-pad">
+            	<div class="col-1-1">
+                	<p class="texto2">Determinan la forma de la región del espacio en el que se mueven los electrones. Se representan con las letras, s, p, d y f.</p>                   
+                </div>
+                <div class="col-1-1">
+                	<div class="col-1-2">
+                        <p class="texto2"><strong>s</strong>: sharp = 2 e-/esférica</p>
+                        <p class="texto2"><strong>P</strong>: principal = 6 e-/ 2 lóbulos</p>
+                        <p class="texto2"><strong>D</strong>: diffuse = 10 e-/ 4 lóbulos</p>
+                        <p class="texto2"><strong>F</strong>: Fundamental = 14 e-/ 8 lóbulos</p>
+                    </div> 
+                    <div class="col-1-2">
+                        <img src="img/IL_S_G08_U02_L01_03_01_32.png"/>
+                    </div>                          
+                </div>
+            </div>
+        </div>
+    </sg-item-popup>
+        <sg-item-popup sg-key="17">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Solución</h1>
+        <div class="content">
+        	<div class="grid grid-pad">
+            	<div class="col-1-3"><img src="img/IL_S_G08_U02_L01_03_05_09.png"/></div>
+                <div class="col-2-3">
+                	<div class="col-1-1">
+                    	<p class="texto2">Na (Sodio) Número atómico : </p>
+                        <p class="texto1 sg-text-center">11</p>
+                    </div>
+                    <div class="col-1-1">
+                    	<p class="texto2">Configuración electrónica y diagrama de los orbitales:</p>
+                        <p class="texto1 sg-text-center">1s<sup>2</sup>s<sup>2</sup>2p<sup>6</sup>3s<sup>1</sup></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </sg-item-popup>
+    <sg-item-popup sg-key="18">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Solución</h1>
+        <div class="content">
+        	<div class="grid grid-pad">
+            	<div class="col-1-1"><p class="texto2">Al / Aluminio número atómico:</p><p class="texto1 crojo sg-text-center">13</p></div>
+                <div class="col-1-1">
+                	<p class="texto2">Configuración electrónica y diagrama de los orbitales:</p>
+                	<p class="texto1 crojo sg-text-center">1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>1</sup></p>
+                </div>
+            </div>
+        </div>
+    </sg-item-popup>
+    <sg-item-popup sg-key="19">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Solución</h1>
+        <div class="content">
+        	<div class="grid grid-pad">
+            	<div class="col-1-1"><p class="texto2">Br / Bromo  número atómico : </p><p class="texto1 crojo sg-text-center">35</p></div>
+                <div class="col-1-1">
+                	<p class="texto2">Configuración electrónica y diagrama de los orbitales:</p>
+                	<p class="texto1 crojo sg-text-center">1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 4s<sup>2</sup> 3d<sup>10</sup> 4p<sup>5</sup></p>
+                </div>
+            </div>
+        </div>
+    </sg-item-popup>
+    <sg-item-popup sg-key="20">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Solución</h1>
+        <div class="content">
+        	<div class="grid grid-pad">
+            	<div class="col-1-1"><p class="texto2">Sr / Estroncio número atómico : </p><p class="texto1 crojo sg-text-center">38</p></div>
+                <div class="col-1-1">
+                	<p class="texto2">Configuración electrónica y diagrama de los orbitales:</p>
+                	<p class="texto1 crojo sg-text-center">1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 4s<sup>2</sup> 3d<sup>10</sup> 4p<sup>6</sup> 5s<sup>2</sup></p>
+                </div>
+            </div>
+        </div>
+    </sg-item-popup>
+    <sg-item-popup sg-key="21">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Solución</h1>
+        <div class="content">
+        	<div class="grid grid-pad">
+            	<div class="col-1-1"><p class="texto2">Cr / Cromo número atómico : </p><p class="texto1 crojo sg-text-center">24</p></div>
+                <div class="col-1-1">
+                	<p class="texto2">Configuración electrónica y diagrama de los orbitales:</p>
+                	<p class="texto1 crojo sg-text-center">1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>5</sup></p>
+                </div>
+            </div>
+        </div>
+    </sg-item-popup>
+    <sg-item-popup sg-key="22">
+    	<sg-btn-popup-close>+</sg-btn-popup-close>
+        <h1>Solución</h1>
+        <div class="content">
+        	<div class="grid grid-pad">
+            	<div class="col-1-1"><p class="texto2">Ce / Cerio número atómico : </p><p class="texto1 crojo sg-text-center">58</p></div>
+                <div class="col-1-1">
+                	<p class="texto2">Configuración electrónica y diagrama de los orbitales:</p>
+                	<p class="texto1 crojo sg-text-center">
+                    	1s<sup>2</sup> 2s<sup>2</sup> 2p<sup>6</sup> 3s<sup>2</sup> 3p<sup>6</sup> 4s<sup>2</sup> 3d<sup>10</sup> 4p<sup>6</sup> 5s<sup>2</sup>
+                    	4d<sup>10</sup> 5p<sup>6</sup> 6s<sup>2</sup> 4f<sup>1</sup> 5d<sup>1</sup>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </sg-item-popup>
+    
+</body>
+</html>

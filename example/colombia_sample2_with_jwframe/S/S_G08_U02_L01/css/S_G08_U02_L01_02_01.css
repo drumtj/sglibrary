@@ -1,0 +1,33 @@
+@charset "utf-8";
+/* CSS Document */
+@import url(common.css);
+.tab-container .etabs .tab.active { background-color:#e6af40 !important; }
+.tab-container .panel-container { background-color:#e6af40 !important; }
+#tabs1, #tabs2{ height:470px;}
+.border{ 
+	background-image:url(../img/board_bg.jpg);
+	background-repeat:no-repeat;
+	background-size:100% 100%;
+	padding: 50px !important;
+	}
+.txta1{height: 335px; background-color:transparent; color:#fff;}
+.table{ display:table;}
+.middle{ display:table-cell; vertical-align:middle;}
+.txt1{height: 370px;padding: 0 90px;}
+.btn{ 
+	float: left;
+	margin: 0 9px;
+	text-align: center;
+	font-size: 27px;
+	background-image: url(../img/act1btn.png);
+	background-repeat: no-repeat;
+	background-size: contain;
+	background-position: 16px;
+	width: 200px;
+	height: 200px;
+	line-height: 200px;
+	}
+.btn:hover{background-image: url(../img/act1btnhover.png);}
+.btn img{vertical-align:middle;}
+.txtp1{height: 410px;padding: 0 60px}
+.simgp1{ width:90%;}
